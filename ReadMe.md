@@ -70,6 +70,10 @@
 
 ### 🌀 Commit Activity
 [![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Rustam-Shrestha&theme=react-dark&hide_border=true)](https://github.com/Rustam-Shrestha)
+---
+## 📊 LeetCode Stats
+
+[![LeetCode Stats](https://leetcard.jacoblin.cool/rustam-shrestha?theme=github&font=monospace&border=true)](https://leetcode.com/u/rustam-shrestha/)
 
 ---
 
