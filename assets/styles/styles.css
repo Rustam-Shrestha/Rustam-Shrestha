@@ -1,0 +1,548 @@
+*{
+    scroll-behavior:smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 2;
+    
+}
+/* adding navbar at the top of page */
+header{
+    transition:1.5s;
+    position:fixed;
+    z-index:2;
+    top:0;
+    left:0;
+    width:100%;
+    padding:40px 100px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+/* header logo at top right */
+header .logo{
+    color:black;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+/* all the contents like home about contact as a wholw*/
+header ul{
+    display:flex;
+
+}
+/* indiviual elelments of header */
+header ul li{
+    list-style-type:none;
+
+}
+/* links of the header */
+header ul li a{
+    text-decoration:none;
+    margin:0 15px;
+    color:black;
+    transition:.8s;
+}
+/* when you hover over the navbar menus this will happen */
+header ul li a:hover{
+    background: #888;
+    border-radius:20%;
+    padding: 4px;
+}
+/* in javascript this changes navbar(header) into color change into white when scrolling */
+header.sticky{
+    background: white;
+    color:black;
+    padding: 20px 100px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* this changes all the navbar content i.e home about color into black check javascript for understanding */
+header.sticky .logo,
+header.sticky ul li a
+{
+    color:black;
+}
+/* adding all my section tag fixed padding */
+section{
+    padding: 80px;
+}
+/* creating banner area in css */
+.banner{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:#111;
+    background: url('../../images/background.png');
+    background-size: cover;
+    background-position: right center;
+
+}
+/* hello iam h2 */
+.banner h2{
+    font-size: 2.5em;
+    color: #444;
+    font-weight: 300;
+    line-height: 1.5em;
+}
+/* name:Rustam shrestha */
+.banner h2 span{
+    /* color: #efefef; */
+    font-size: 1.2em;
+
+
+}
+/* text after name */
+.banner h3{
+    /* color:#fff; */
+    font-size: 1.5em;
+    font-weight: 500;
+}
+/* that green button at the page with name: about me */
+.btn{
+    position: relative;
+    text-transform: uppercase;
+    border-radius: 8px;
+    background: #00ae66;
+    display: inline-block;
+    padding: 10px 30px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 18px;
+}
+/* when you hover over the button of about me */
+.btn:hover{
+    border: 5px outset #1282df;
+    transition: 0.8s;
+}
+/* about me heading */
+.heading{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    color:#111;
+}
+/* paragraph after about me */
+.heading p{
+    font-size: 14px;
+    font-style: italic;
+}
+/* about me in green color */
+.heading h2{
+    font-size: 3em;
+    color: #009e66;
+}
+/* this keeps all the content of about section  in a row */
+.content{
+    display: flex;
+    justify-content: space-between;
+
+}
+/* space between text and image */
+.contentbx{
+    padding-left: 40px;
+    text-align: justify;
+
+    
+}
+/* picture in cirquare(circle and square form) */
+.propic{
+    width: 300px;
+    height: 350px;
+    border-radius:40% 0 40% 0;
+    box-shadow:5px 6px 19px cyan;
+    border: 4px inset white;
+}
+/* reducing the font weight of the heading except name */
+.contentbx h2{
+    font-weight:300;
+    margin:10px;
+
+}
+/* makes name age button location email in a row */
+.heading.bottom{
+    display:flex;
+    justify-content:space-between;
+    flex-direction:row-reverse;
+}
+/* adding margin and centralizing the name age cvbutton email and location */
+.bt{
+    margin-top: 20px;
+    align-items:center;
+}
+/* min width of image */
+.w50{
+    min-width:25%;
+
+}
+/* the profile image */
+img{
+    max-width:100%;
+
+}
+/* making green cv button only round */
+.btn.round{
+    border-radius:50px;
+
+}
+/* icons for my services */
+.icons{
+    height: 60px;
+    width: 60px;
+    border-radius: 15px 0;
+
+}
+/* when you hover over the icon there will be white shadow */
+.icons:hover{
+    box-shadow:4px 3px 40px white;
+    transition:.6s;
+}
+/* backgtounf of services will be black */
+#services{
+    /* background:#151515; */
+}
+/* wrap the boxes in the services so they donot overflow */
+.services .content{
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    flex-direction:row;
+}
+    /* positions all the boxes in services in row */
+.services .content .servicebox{
+    background:#161616;
+    color: white;
+    margin:10px 15px;
+    padding: 30px 15px;
+    text-align: center;
+    max-width: 300px;
+    border-radius:30px;
+}
+/* when you hover over the boxes in services section */
+.services .content .servicebox:hover{
+    transition:.5s;
+    box-shadow:6px 6px 31px cyan;
+    cursor:pointer;
+    
+}
+.about{
+    /* background: #888888; */
+}
+/* designing work layout in css */
+.work .content{
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    flex-direction:row;
+}
+.work .content .workbox{
+    width:540px;
+    padding:20px;
+}
+.work .content .workbox img{
+    margin:0 auto;
+    max-width:100%;
+    border:1px solid rgba(0, 0, 0, 0.4);
+    height:270px;
+    width:300px;
+    display:flex;
+    justify-content: center;
+}
+.work .content .workbox img:hover{
+    box-shadow: 0 0 20px 5px #ccc;
+    transform: scale(1.008);
+    transition:.5s;
+}
+.work .content .workbox p{
+    margin:0 auto;
+    max-width:100%;
+    text-align:center;
+    text-shadow: 2px 1px 12px #ccc;
+    border-bottom: 4px solid #29df32;
+
+}
+.work .content .workbox a:link,
+.work .content .workbox a:visited,
+.work .content .workbox a:active{
+    color:#191919;
+    text-decoration: none;
+    font-size:1.1em;
+    font-weight:600;
+}
+hr{
+    border-color: teal;
+    
+}
+.testimonial{
+    /* background:#303030; */
+}
+.testimonial .content{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    flex-direction:row;
+}
+.testimonial .content .testimonialbox{
+    background:#161616;
+    margin:20px;
+    padding:60px 40px;
+    /* max-width: calc(50% - 40px); */
+    display:flex;
+    border-radius:0 0 20px 20px;
+    cursor:pointer;
+
+
+}
+
+.testimonial .content .testimonialbox:hover{
+    border-bottom:6px inset #5ac583;
+}
+.testimonial .content .testimonialbox p{
+    color:#ddd;
+    font-style:italic;
+    font-size:18px;
+    font-weight:100;
+    font-family: 'Times New Roman', Times, serif;
+    line-height:24px;
+}
+.testimonial .content .testimonialbox h4{
+    color:#00ae66;
+    margin-top:40px;
+    text-align:end;
+    font-weight:200;
+    line-height:20px;
+    font-style:italic;
+    
+}
+/* progress{
+    border: 3px solid white;
+} */
+.imaginary{
+    width:20px;
+    height:20px;
+    margin:0 9px 0 0;
+}
+.contact{
+    background: #121212;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.formbox{
+    min-width:60%;
+}
+.formbox form{
+    display:flex;
+    flex-direction:column;
+}
+.formbox form h3,
+.contact .content .contactinfo h3
+{
+    color: whitesmoke;
+
+}
+.formbox form input,
+.formbox form textarea{
+    margin-bottom:20px;
+    padding:16px;
+    font-size:16px;
+    background:transparent;
+    border:none;
+    outline:none;
+    background:#161616;
+    color:white;
+    resize:vertical;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.formbox form input:focus,
+.formbox form textarea:focus{
+    border-bottom:4px solid #009e66;
+    transition:.5s;
+}
+.formbox form input::placeholder,
+.formbox form textarea::placeholder{
+    color:#999;
+}
+.formbox form input[type="submit"]{
+    background:#009e66;
+    max-width:250px;
+    cursor:pointer;
+    font-weight:600;
+    border-radius:50px;
+}
+.contactinfobox{
+    min-width:40px;
+}
+.contactinfo p{
+    color:#999;
+    position:relative;
+}
+.contactinfobox{
+    position: relative;
+    padding:20px 0;
+    display:flex;
+}
+.contactinfobox .box .icon{
+color:white;
+min-width:40px;
+padding-top:40px;
+display: flex;
+justify-content:center;
+align-items: flex-start;
+font-size:24px;
+}
+.contactinfobox .box .text{
+    color:#999;
+    margin-left:20px;
+    font-size:16px;
+    flex-direction:column;
+
+}
+.copyright{
+    font-style:normal;
+    background:tomato;
+    text-align:center;
+    height:70px;
+    padding-top: 28px;
+}
+/* responsive part */
+@media (max-width:1080px){
+
+    header, header.sticky{
+        padding:20px 50px;
+        
+    }
+    .heading h2{
+        font-size: 23px;
+    }
+    .heading.bottom{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    header .menu{
+        display:none;
+        position:fixed;
+        background:white;
+        display:block;
+        top:75px;
+        left:-100%;
+        bottom:-100%;
+        padding:100px 50px;
+        width:100%;
+        height:100vh;
+        text-align:center;
+        border-top:2px solid dodgerblue;
+        transition:1.2s;
+    }
+    header .menu.active{
+        display:none;
+        position:fixed;
+        background:white;
+        display:block;
+        top:75px;
+        left: 50%;
+        padding:100px 50px;
+        width:100%;
+        height:100vh;
+        text-align:center;
+        border-top:2px solid dodgerblue;
+    }
+    header ul li a{
+        font-size:20px;
+        color:#111;
+        font-size: 300;
+        text-align:left;
+    }
+    header ul li{
+        margin:22px 0;
+        
+        text-align:left;
+
+    }
+.toggle{
+    width:40px;
+    background:url('../../images/hamburger.jpg') no-repeat center center/cover;
+    height:40px;
+    filter:invert(100%);
+    background-size: 30px;
+    cursor:pointer;
+}
+.toggle.active{
+    height:40px; 
+    width:40px;
+    background:url('../../images/close.png') no-repeat center center/cover;
+}
+header.sticky .toggle{
+    filter:invert(1);
+     
+}
+section{
+    padding:100px 30px;
+
+}
+.banner h3{
+    font-size:1.5em;
+
+}
+.banner h2{
+    font-size: 1em;;
+}
+.textbox{
+    position:relative;
+    top:170px;
+    
+}
+.btn{
+    margin-top:10px;
+    padding:10px 20px;
+    border-radius: 50px;
+    font-size:16px;
+    
+}
+.content{
+    flex-direction:column;
+
+}
+.content .w50 img{
+    display:block;
+    margin:0 auto 30px auto;
+}
+.contentbx{
+    padding:0;
+
+}
+
+.contentbx h2{
+    font-size:20px;
+    font-weight:300;
+
+}
+
+
+
+
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.progress-bar .fill {
+    height: 100%;
+    background-color: #009e66;
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out;
+}
