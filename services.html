@@ -65,15 +65,16 @@
 </head>
 <body>
     <header>
-        <a href="#" class="logo">Santosh Shrestha</a>
+        <a href="index.html" class="logo">Santosh Shrestha</a>
         <div class="toggle"></div>
         <ul class="menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Me</a></li>
-            <li><a style="text-decoration: underline;" href="services.html">Services</a></li>
+            <li><a href="services.html" style="text-decoration: underline;">Services</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="testimonial.html">Testimonial</a></li>
             <li><a href="contact.html">Contact Me</a></li>
+            <li><button id="themeToggle" class="theme-btn" title="Toggle Dark/Light Mode">☀️</button></li>
         </ul>
     </header>
 
@@ -84,39 +85,69 @@
         </div>
        <div class="content">
     <div class="servicebox">
-        <img src="https://www.svgrepo.com/show/303388/java-4-logo.svg" alt="Java Icon" class="icons">
-        <h3>Java and C Programming</h3>
-        <p>Proficient in core programming concepts.</p>
+        <div class="service-icon">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 35h20V15H15v20zm4-16h12v12H19V19z" fill="#1a5f3f" stroke="#1a5f3f" stroke-width="1"/>
+                <rect x="21" y="25" width="8" height="2" fill="#1a5f3f"/>
+            </svg>
+        </div>
+        <h3>Java & C Programming</h3>
+        <p>Core programming concepts and algorithms</p>
         <div class="progress-bar"><div class="fill" style="width: 80%;"></div></div>
     </div>
     <div class="servicebox">
-        <img src="https://www.svgrepo.com/show/1699/web-development.svg" alt="Web Dev Icon" class="icons">
-        <h3>Full-stack Web Development (WAMP & MERN)</h3>
-        <p>Building end-to-end web applications.</p>
+        <div class="service-icon">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 40h34V10H8v30zm6-24h22v18H14V16z" fill="#1a5f3f" stroke="#1a5f3f" stroke-width="1"/>
+                <circle cx="25" cy="25" r="2.5" fill="#1a5f3f"/>
+            </svg>
+        </div>
+        <h3>Full-Stack Development</h3>
+        <p>WAMP & MERN stack expertise</p>
         <div class="progress-bar"><div class="fill" style="width: 90%;"></div></div>
     </div>
     <div class="servicebox">
-        <img src="https://www.svgrepo.com/download/452091/python.svg" alt="Python Icon" class="icons">
-        <h3>Python for Machine Learning</h3>
-        <p>Using Python libraries for ML tasks.</p>
+        <div class="service-icon">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 10C17.27 10 10 16.1 10 23.5S17.27 37 25 37s15-6.1 15-13.5S32.73 10 25 10zm0 24c-5.79 0-10.5-4.71-10.5-10.5S19.21 12.5 25 12.5s10.5 4.71 10.5 10.5-4.71 10.5-10.5 10.5z" fill="#1a5f3f"/>
+                <path d="M25 16v10l7 3.5" fill="none" stroke="#1a5f3f" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <h3>Python & ML</h3>
+        <p>Machine Learning and data science</p>
         <div class="progress-bar"><div class="fill" style="width: 70%;"></div></div>
     </div>
     <div class="servicebox">
-        <img src="https://www.svgrepo.com/download/349419/javascript.svg" alt="JavaScript Icon" class="icons">
-        <h3>JavaScript</h3>
-        <p>Frontend and backend scripting.</p>
+        <div class="service-icon">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 40h30V10H10v30zm6-24h18v3H16v-3zm0 7h18v3H16v-3zm0 7h10v3H16v-3z" fill="#1a5f3f" stroke="#1a5f3f" stroke-width="1"/>
+            </svg>
+        </div>
+        <h3>JavaScript & Frontend</h3>
+        <p>React and responsive UI design</p>
         <div class="progress-bar"><div class="fill" style="width: 85%;"></div></div>
     </div>
     <div class="servicebox">
-        <img src="https://icon.icepanel.io/Technology/svg/.NET-core.svg" alt=".NET Icon" class="icons">
-        <h3>.NET (C#)</h3>
-        <p>Developing applications with .NET framework.</p>
+        <div class="service-icon">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 10C16.72 10 10 15.82 10 23s6.72 13 15 13 15-5.82 15-13-6.72-13-15-13zm0 24c-6.08 0-11-4.48-11-10s4.92-10 11-10 11 4.48 11 10-4.92 10-11 10z" fill="#1a5f3f"/>
+                <circle cx="25" cy="23" r="3" fill="#1a5f3f"/>
+            </svg>
+        </div>
+        <h3>.NET & C#</h3>
+        <p>Enterprise applications development</p>
         <div class="progress-bar"><div class="fill" style="width: 60%;"></div></div>
     </div>
     <div class="servicebox">
-        <img src="https://static.vecteezy.com/system/resources/previews/004/655/703/non_2x/trendy-design-icon-of-machine-learning-vector.jpg" alt="ML Icon" class="icons">
-        <h3>Python ML Libraries</h3>
-        <p>Including Pandas, NumPy, scikit-learn, TensorFlow.</p>
+        <div class="service-icon">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 15h14v20H18V15z" fill="#1a5f3f" opacity="0.3"/>
+                <path d="M22 18h6v14h-6V18z" fill="#1a5f3f"/>
+                <path d="M12 20h4v10h-4V20zm22 0h4v10h-4V20z" fill="#1a5f3f" opacity="0.6"/>
+            </svg>
+        </div>
+        <h3>ML Libraries</h3>
+        <p>Pandas, NumPy, TensorFlow</p>
         <div class="progress-bar"><div class="fill" style="width: 75%;"></div></div>
     </div>
 </div>

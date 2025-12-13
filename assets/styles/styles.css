@@ -1,417 +1,703 @@
 *{
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    line-height: 2;
-    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+:root {
+    --primary-color: #1a5f3f;
+    --secondary-color: #2d8659;
+    --accent-color: #1a5f3f;
+    --text-dark: #212121;
+    --text-light: #757575;
+    --text-lighter: #bdbdbd;
+    --bg-light: #f5f5f5;
+    --border-color: #e0e0e0;
+    --success-color: #1a5f3f;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode section {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode .heading h2 {
+    color: #4db8a0;
+}
+
+body.dark-mode .heading p {
+    color: #a0a0a0;
+}
+
+body.dark-mode .services .content .servicebox {
+    background-color: #2a2a2a;
+    border-color: #404040;
+    color: #e0e0e0;
+}
+
+body.dark-mode .services .content .servicebox h3 {
+    color: #4db8a0;
+}
+
+body.dark-mode .services .content .servicebox p {
+    color: #a0a0a0;
+}
+
+body.dark-mode .services .content .servicebox:hover {
+    background-color: #2d2d2d;
+    border-color: #4db8a0;
+}
+
+body.dark-mode .work .content .workbox {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .testimonial {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .testimonial .content .testimonialbox {
+    background-color: #2a2a2a;
+    border-color: #404040;
+}
+
+body.dark-mode .testimonial .content .testimonialbox p {
+    color: #a0a0a0;
+}
+
+body.dark-mode .contact {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .formbox form input,
+body.dark-mode .formbox form textarea {
+    background-color: #2a2a2a;
+    border-color: #404040;
+    color: #e0e0e0;
+}
+
+body.dark-mode .formbox form input::placeholder,
+body.dark-mode .formbox form textarea::placeholder {
+    color: #707070;
 }
 /* adding navbar at the top of page */
 header{
-    transition:1.5s;
-    position:fixed;
-    z-index:2;
-    top:0;
-    left:0;
-    width:100%;
-    padding:40px 100px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    transition: 0.3s ease;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
 }
-/* header logo at top right */
+
+/* header logo at top left */
 header .logo{
-    color:black;
-    text-decoration:none;
-    text-transform:uppercase;
-    font-size:20px;
-    font-weight:700;
-    letter-spacing:2px;
+    color: var(--text-dark);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
-/* all the contents like home about contact as a wholw*/
+
+/* all the contents like home about contact as a whole */
 header ul{
-    display:flex;
-
+    display: flex;
 }
-/* indiviual elelments of header */
+
+/* individual elements of header */
 header ul li{
-    list-style-type:none;
-
+    list-style-type: none;
 }
+
 /* links of the header */
 header ul li a{
-    text-decoration:none;
-    margin:0 15px;
-    color:black;
-    transition:.8s;
-}
-/* when you hover over the navbar menus this will happen */
-header ul li a:hover{
-    background: #888;
-    border-radius:20%;
-    padding: 4px;
-}
-/* in javascript this changes navbar(header) into color change into white when scrolling */
-header.sticky{
-    background: white;
-    color:black;
-    padding: 20px 100px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    margin: 0 20px;
+    color: var(--text-dark);
+    transition: 0.3s;
+    font-weight: 500;
+    font-size: 14px;
 }
 
-/* this changes all the navbar content i.e home about color into black check javascript for understanding */
+/* theme toggle button */
+.theme-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-left: 15px;
+    transition: transform 0.3s ease;
+}
+
+.theme-btn:hover {
+    transform: rotate(20deg);
+}
+
+/* when you hover over the navbar menus */
+header ul li a:hover{
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 2px;
+}
+
+/* active navigation link */
+header ul li a[style*="text-decoration: underline"]{
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 2px;
+}
+
+/* sticky header on scroll */
+header.sticky{
+    background: white;
+    color: var(--text-dark);
+    padding: 15px 100px;
+    box-shadow: var(--shadow-md);
+}
+
 header.sticky .logo,
-header.sticky ul li a
-{
-    color:black;
+header.sticky ul li a {
+    color: var(--text-dark);
 }
 /* adding all my section tag fixed padding */
 section{
-    padding: 80px;
+    padding: 100px 80px;
 }
+
 /* creating banner area in css */
 .banner{
     position: relative;
     min-height: 100vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background:#111;
     background: url('../../images/background.png');
     background-size: cover;
-    background-position: right center;
+    background-position: center;
+    background-attachment: fixed;
+    margin-top: 60px;
+}
 
+.banner .textbox {
+    flex: 1;
+    max-width: 600px;
+    text-align: center;
 }
-/* hello iam h2 */
+
+.banner-image {
+    display: none;
+}
+
+.banner-profile {
+    display: none;
+}
+
+/* hello i am h2 */
 .banner h2{
-    font-size: 2.5em;
-    color: #444;
-    text-shadow: 3px 13px 20px rgba(0, 0, 0, 0.25);
-    font-weight: 300;
-    line-height: 1.5em;
+    font-size: 3em;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    line-height: 1.2em;
+    margin-bottom: 20px;
 }
-/* name:Rustam shrestha */
+
+/* name: Santosh Shrestha */
 .banner h2 span{
-    /* color: #efefef; */
-    font-size: 1.2em;
-    
+    color: #4db8a0;
+    font-size: 1em;
 }
+
 /* text after name */
+.banner h3{
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    color: #f0f0f0;
+    font-size: 1.3em;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
 .banner h3{
     /* color:#ccc; */
     text-shadow: 1px 2px 7px #fff;
     font-size: 1.5em;
     font-weight: 500;
 }
-/* that green button at the page with name: about me */
+/* that button */
 .btn{
     position: relative;
     text-transform: uppercase;
-    border-radius: 8px;
-    background: #00ae66;
+    border-radius: 4px;
+    background: var(--accent-color);
     display: inline-block;
-    padding: 10px 30px;
+    padding: 12px 32px;
     margin-top: 20px;
     text-decoration: none;
-    color: black;
-    letter-spacing: 2px;
-    font-weight: 500;
-    font-size: 18px;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 14px;
+    border: 2px solid var(--accent-color);
+    transition: all 0.3s ease;
 }
-/* when you hover over the button of about me */
+
+/* when you hover over the button */
 .btn:hover{
-    border: 5px outset #1282df;
-    transition: 0.8s;
+    background: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
 }
 /* about me heading */
 .heading{
     width: 100%;
     text-align: center;
-    margin-bottom: 30px;
-    color:#111;
+    margin-bottom: 50px;
+    color: var(--text-dark);
 }
+
 /* paragraph after about me */
 .heading p{
-    font-size: 14px;
-    font-style: italic;
+    font-size: 16px;
+    color: var(--text-light);
+    margin-top: 10px;
 }
-/* about me in green color */
+
+/* about me in color */
 .heading h2{
     font-size: 3em;
-    color: #009e66;
+    color: var(--text-dark);
+    font-weight: 700;
+    margin-bottom: 10px;
 }
-/* this keeps all the content of about section  in a row */
+
+/* this keeps all the content of about section in a row */
 .content{
     display: flex;
     justify-content: space-between;
-
+    gap: 40px;
+    align-items: flex-start;
 }
+
 /* space between text and image */
 .contentbx{
-    padding-left: 40px;
+    padding-left: 20px;
     text-align: justify;
-
-    
+    flex: 1;
 }
-/* picture in cirquare(circle and square form) */
+
+.contentbx h2 {
+    font-size: 1.8em;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+.contentbx h2:first-child {
+    margin-top: 0;
+}
+
+.contentbx p {
+    color: var(--text-light);
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+/* picture in circle and square form */
 .propic{
     width: 300px;
     height: 350px;
-    border-radius:40% 0 40% 0;
-    box-shadow:5px 6px 19px cyan;
-    border: 4px inset white;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    border: none;
+    object-fit: cover;
 }
+
 /* reducing the font weight of the heading except name */
 .contentbx h2{
-    font-weight:300;
-    margin:10px;
-
+    font-weight: 600;
+    margin: 20px 0 10px;
 }
+
 /* makes name age button location email in a row */
 .heading.bottom{
-    display:flex;
-    justify-content:space-between;
-    flex-direction:row-reverse;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    gap: 40px;
+    text-align: left;
+    margin-top: 40px;
 }
+
 /* adding margin and centralizing the name age cvbutton email and location */
 .bt{
     margin-top: 20px;
-    align-items:center;
+    align-items: flex-start;
+    flex: 1;
 }
+
+.bt p {
+    color: var(--text-light);
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
 /* min width of image */
 .w50{
-    min-width:25%;
-
+    min-width: 300px;
 }
 /* the profile image */
 img{
-    max-width:100%;
-
+    max-width: 100%;
+    height: auto;
 }
-/* making green cv button only round */
+
+/* making CV button round */
 .btn.round{
-    border-radius:50px;
-
+    border-radius: 4px;
 }
+
 /* icons for my services */
 .icons{
     height: 60px;
     width: 60px;
-    border-radius: 15px 0;
-
+    border-radius: 8px;
+    object-fit: contain;
 }
-/* when you hover over the icon there will be white shadow */
+
+/* when you hover over the icon */
 .icons:hover{
-    box-shadow:4px 3px 40px white;
-    transition:.6s;
+    box-shadow: var(--shadow-lg);
+    transition: 0.3s;
 }
-/* backgtounf of services will be black */
-#services{
-    /* background:#151515; */
-}
-/* wrap the boxes in the services so they donot overflow */
-.services .content{
 
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    flex-direction:row;
+/* services section */
+#services{
+    background: var(--bg-light);
 }
-    /* positions all the boxes in services in row */
+
+/* wrap the boxes in the services so they don't overflow */
+.services .content{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+}
+
+/* positions all the boxes in services in row */
 .services .content .servicebox{
-    background:#161616;
-    color: white;
-    margin:10px 15px;
-    padding: 30px 15px;
+    background: white;
+    color: var(--text-dark);
+    padding: 30px 25px;
     text-align: center;
-    max-width: 300px;
-    border-radius:30px;
+    width: 280px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
 }
+
+.service-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.service-icon svg {
+    transition: transform 0.3s ease;
+}
+
+.services .content .servicebox:hover .service-icon svg {
+    transform: scale(1.1);
+}
+
+.services .content .servicebox h3 {
+    color: var(--text-dark);
+    font-size: 1.1em;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.services .content .servicebox p {
+    color: var(--text-light);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
 /* when you hover over the boxes in services section */
 .services .content .servicebox:hover{
-    transition:.5s;
-    box-shadow:6px 6px 31px cyan;
-    cursor:pointer;
-    
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+    cursor: pointer;
+    transform: translateY(-4px);
 }
+
 .about{
-    /* background: #888888; */
+    background: white;
 }
 /* designing work layout in css */
 .work .content{
-    display:flex;
+    display: flex;
     justify-content: center;
-    flex-wrap:wrap;
-    flex-direction:row;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 30px;
 }
-.work .content .workbox{
-    width:540px;
-    padding:20px;
-}
-.work .content .workbox img{
-    margin:0 auto;
-    max-width:100%;
-    border:1px solid rgba(0, 0, 0, 0.4);
-    height:270px;
-    width:300px;
-    display:flex;
-    justify-content: center;
-}
-.work .content .workbox img:hover{
-    box-shadow: 0 0 20px 5px #ccc;
-    transform: scale(1.008);
-    transition:.5s;
-}
-.work .content .workbox p{
-    margin:0 auto;
-    max-width:100%;
-    text-align:center;
-    text-shadow: 2px 1px 12px #ccc;
-    border-bottom: 4px solid #29df32;
 
+.work .content .workbox{
+    width: 540px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
 }
+
+.work .content .workbox:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+.work .content .workbox img{
+    margin: 0 auto;
+    max-width: 100%;
+    border: 1px solid var(--border-color);
+    height: 270px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.work .content .workbox img:hover{
+    box-shadow: var(--shadow-md);
+    transform: scale(1.02);
+    transition: 0.3s;
+}
+
+.work .content .workbox p{
+    margin: 15px auto;
+    max-width: 100%;
+    text-align: center;
+    text-shadow: none;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 10px;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.work .content .workbox p:not(:first-of-type) {
+    border-bottom: none;
+    color: var(--text-light);
+    font-weight: 400;
+    font-size: 14px;
+}
+
 .work .content .workbox a:link,
 .work .content .workbox a:visited,
 .work .content .workbox a:active{
-    color:#191919;
+    color: var(--accent-color);
     text-decoration: none;
-    font-size:1.1em;
-    font-weight:600;
+    font-size: 1em;
+    font-weight: 600;
 }
+
+.work .content .workbox a:hover {
+    text-decoration: underline;
+}
+
 hr{
-    border-color: teal;
-    
+    border-color: var(--border-color);
 }
 .testimonial{
-    /* background:#303030; */
+    background: var(--bg-light);
 }
+
 .testimonial .content{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    flex-direction:row;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
 }
+
 .testimonial .content .testimonialbox{
-    background:#161616;
-    margin:20px;
-    padding:60px 40px;
-    /* max-width: calc(50% - 40px); */
-    display:flex;
-    border-radius:0 0 20px 20px;
-    cursor:pointer;
-
-
+    background: white;
+    padding: 30px;
+    max-width: calc(50% - 20px);
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
 }
 
 .testimonial .content .testimonialbox:hover{
-    border-bottom:6px inset #5ac583;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
 }
+
 .testimonial .content .testimonialbox p{
-    color:#ddd;
-    font-style:italic;
-    font-size:18px;
-    font-weight:100;
-    font-family: 'Times New Roman', Times, serif;
-    line-height:24px;
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    margin-bottom: 20px;
 }
+
 .testimonial .content .testimonialbox h4{
-    color:#00ae66;
-    margin-top:40px;
-    text-align:end;
-    font-weight:200;
-    line-height:20px;
-    font-style:italic;
-    
+    color: var(--accent-color);
+    margin-top: auto;
+    text-align: right;
+    font-weight: 600;
+    line-height: 20px;
+    font-style: normal;
 }
+/* progress bar styling */
 /* progress{
     border: 3px solid white;
 } */
 .imaginary{
-    width:20px;
-    height:20px;
-    margin:0 9px 0 0;
+    width: 20px;
+    height: 20px;
+    margin: 0 9px 0 0;
 }
-.contact{
-    background: #121212;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-.formbox{
-    min-width:60%;
-}
-.formbox form{
-    display:flex;
-    flex-direction:column;
-}
-.formbox form h3,
-.contact .content .contactinfo h3
-{
-    color: whitesmoke;
 
+.contact{
+    background: white;
 }
+
+.formbox{
+    min-width: 60%;
+}
+
+.formbox form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formbox form h3,
+.contact .content .contactinfo h3 {
+    color: var(--text-dark);
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
 .formbox form input,
 .formbox form textarea{
-    margin-bottom:20px;
-    padding:16px;
-    font-size:16px;
-    background:transparent;
-    border:none;
-    outline:none;
-    background:#161616;
-    color:white;
-    resize:vertical;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 14px;
+    font-size: 14px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    outline: none;
+    color: var(--text-dark);
+    resize: vertical;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
+
 .formbox form input:focus,
 .formbox form textarea:focus{
-    border-bottom:4px solid #009e66;
-    transition:.5s;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 137, 123, 0.1);
+    transition: 0.3s;
 }
+
 .formbox form input::placeholder,
 .formbox form textarea::placeholder{
-    color:#999;
+    color: var(--text-lighter);
 }
+
 .formbox form input[type="submit"]{
-    background:#009e66;
-    max-width:250px;
-    cursor:pointer;
-    font-weight:600;
-    border-radius:50px;
+    background: var(--accent-color);
+    max-width: 250px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
 }
+
+.formbox form input[type="submit"]:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
 .contactinfobox{
-    min-width:40px;
+    min-width: 40px;
+    flex: 1;
 }
+
 .contactinfo p{
-    color:#999;
-    position:relative;
+    color: var(--text-light);
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 15px;
 }
+
 .contactinfobox{
     position: relative;
-    padding:20px 0;
-    display:flex;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
 }
-.contactinfobox .box .icon{
-color:white;
-min-width:40px;
-padding-top:40px;
-display: flex;
-justify-content:center;
-align-items: flex-start;
-font-size:24px;
-}
-.contactinfobox .box .text{
-    color:#999;
-    margin-left:20px;
-    font-size:16px;
-    flex-direction:column;
 
+.contactinfobox .box .icon{
+    color: var(--accent-color);
+    min-width: 40px;
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 24px;
 }
+
+.contactinfobox .box .text{
+    color: var(--text-light);
+    margin-left: 20px;
+    font-size: 16px;
+    flex-direction: column;
+}
+
 .copyright{
-    font-style:normal;
-    background:tomato;
-    text-align:center;
-    height:70px;
+    font-style: normal;
+    background: var(--text-dark);
+    color: white;
+    text-align: center;
+    height: 70px;
     padding-top: 28px;
+    margin-top: 50px;
 }
 /* responsive part */
 @media (max-width:1080px){
@@ -541,18 +827,163 @@ section{
 
 }
 
+/* progress bar styling */
 .progress-bar {
     width: 100%;
-    height: 10px;
-    background-color: #e0e0e0;
-    border-radius: 5px;
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 4px;
     margin-top: 10px;
     overflow: hidden;
 }
 
 .progress-bar .fill {
     height: 100%;
-    background-color: #009e66;
-    border-radius: 5px;
+    background-color: var(--accent-color);
+    border-radius: 4px;
     transition: width 0.5s ease-in-out;
+}
+
+/* responsive part */
+@media (max-width: 1080px) {
+    header .logo{
+        font-size: 18px;
+        letter-spacing: 1px;
+        padding: 5px 10px;
+    }
+    
+    header, header.sticky{
+        padding: 15px 50px;
+    }
+    
+    .heading h2{
+        font-size: 2em;
+    }
+    
+    .heading.bottom{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    
+    header .menu{
+        display: none;
+        position: fixed;
+        background: white;
+        display: block;
+        top: 75px;
+        left: -100%;
+        bottom: -100%;
+        padding: 100px 50px;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        border-top: 2px solid var(--accent-color);
+        transition: 1.2s;
+    }
+    
+    header .menu.active{
+        display: none;
+        position: fixed;
+        background: white;
+        display: block;
+        top: 75px;
+        left: 50%;
+        padding: 100px 50px;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        border-top: 2px solid var(--accent-color);
+    }
+    
+    header ul li a{
+        font-size: 20px;
+        color: var(--text-dark);
+        font-weight: 300;
+        text-align: left;
+    }
+    
+    header ul li{
+        margin: 22px 0;
+        text-align: left;
+    }
+    
+    .toggle{
+        width: 40px;
+        background: url('../../images/hamburger.jpg') no-repeat center center/cover;
+        height: 40px;
+        filter: invert(100%);
+        background-size: 30px;
+        cursor: pointer;
+    }
+    
+    .toggle.active{
+        height: 40px; 
+        width: 40px;
+        background: url('../../images/close.png') no-repeat center center/cover;
+    }
+    
+    header.sticky .toggle{
+        filter: invert(1);
+    }
+    
+    section{
+        padding: 100px 30px;
+    }
+    
+    .banner h3{
+        font-size: 1.3em;
+    }
+    
+    .banner h2{
+        font-size: 2.5em;
+    }
+    
+    .textbox{
+        position: relative;
+        top: 100px;
+        text-align: center;
+    }
+    
+    .btn{
+        margin-top: 10px;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    
+    .content{
+        flex-direction: column;
+    }
+    
+    .banner-image {
+        display: none;
+    }
+    
+    .banner-profile {
+        display: none;
+    }
+    
+    .content .w50 img{
+        display: block;
+        margin: 0 auto 30px auto;
+    }
+    
+    .contentbx{
+        padding: 0;
+    }
+
+    .contentbx h2{
+        font-size: 1.5em;
+        font-weight: 600;
+    }
+    
+    .work .content .workbox {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    .testimonial .content .testimonialbox {
+        max-width: 100%;
+    }
 }
