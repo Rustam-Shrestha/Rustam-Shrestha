@@ -82,10 +82,10 @@ Professional experience in full-stack web development, ERP systems, and machine 
 
 ## Professional Experience
 
-**Full-Stack Developer (ERP Systems)**  
-Saurabh Group of IT – Sarbottam & Laxmi Steels  
+**Full-Stack MERN Developer (ERP Systems)**  
+JYRA SOft – YBC ERP  
 December 2025 – Present  
-- Developing ERP features using React.js frontend and PHP/Node.js backend  
+- Developing ERP features using React.js frontend and React and Node.js backend  
 - Optimizing database queries and system performance
 
 **Full-Stack Developer**  
