@@ -4,8 +4,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // Use relative base path for GitHub Pages and static host compatibility
-  base: './',
+  base: '/Rustam-Shrestha/',
   plugins: [react()],
   resolve: {
     alias: {
