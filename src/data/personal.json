@@ -1,0 +1,38 @@
+{
+  "name": "Santosh (Rustam) Shrestha",
+  "shortName": "Rustam Shrestha",
+  "title": "Full-Stack Developer (MERN Stack) · Applied ML Enthusiast",
+  "tagline": "Full-stack developer working in industry with the MERN stack, with a keen interest in continuous learning and applied machine learning.",
+  "bio": "Bachelor in Computer Application (BCA) student at Saraswati Multiple Campus (Tribhuvan University, 2022 to Present) working in the industry as a Full-Stack MERN Developer. Experienced in building responsive React interfaces, robust Node.js and Express services, and relational database systems, alongside practical exploratory projects in applied machine learning.",
+  "email": "shrestharama65@gmail.com",
+  "phone": "(+977) 9861473522",
+  "location": "Kathmandu, Nepal",
+  "website": "https://santoshshrestha4.com.np",
+  "github": "https://github.com/Rustam-Shrestha",
+  "linkedin": "https://www.linkedin.com/in/santoshshrestha4",
+  "twitter": "https://x.com/44rustam",
+  "linktree": "https://linktr.ee/santoshshrestha?utm_source=linktree_profile_share&ltsid=1bb96c52-cb1a-48bd-92d7-43840032d3d4",
+  "avatar": "./images/profile.webp",
+  "resumeUrl": "./Santosh_Shrestha_CV.pdf",
+  "education": {
+    "degree": "Bachelor in Computer Application (BCA)",
+    "institution": "Saraswati Multiple Campus, Tribhuvan University",
+    "period": "2022 — Present",
+    "courses": [
+      "Data Structures & Algorithms",
+      "AI & Machine Learning",
+      "Database Management Systems",
+      "Software Engineering",
+      "Cloud Computing",
+      "Operating Systems",
+      ".NET Technology",
+      "Web Technologies"
+    ]
+  },
+  "stats": [
+    { "label": "Industry Status", "value": "Working", "unit": "MERN Stack" },
+    { "label": "Projects Built", "value": "9+", "unit": "web & ML" },
+    { "label": "Academic Program", "value": "BCA", "unit": "TU (2022—Pres)" },
+    { "label": "Primary Focus", "value": "Full-Stack", "unit": "React & Node" }
+  ]
+}

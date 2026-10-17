@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://santoshshrestha4.com.np/sitemap.xml

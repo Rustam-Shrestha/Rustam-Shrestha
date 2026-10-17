@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Math for Machine Learning",
+    "issuer": "Udemy",
+    "credentialUrl": "https://www.udemy.com/certificate/UC-c67cfbe8-ee0a-4d8f-af9b-34a24aa89f75",
+    "topics": "Linear algebra, multivariate calculus, optimization, probability foundations."
+  },
+  {
+    "title": "Extreme Gradient Boosting with XGBoost",
+    "issuer": "DataCamp",
+    "credentialUrl": "https://www.datacamp.com/statement-of-accomplishment/course/c65ee4ee69018c35d340019be90d553c2b9063eb?raw=1",
+    "topics": "Tree-based ensembles, objective functions, regularization, cross-validation."
+  },
+  {
+    "title": "Feature Engineering for ML in Python",
+    "issuer": "DataCamp",
+    "credentialUrl": "https://www.datacamp.com/statement-of-accomplishment/course/e9475e91d4c092fda69f5ad69c0999c0610c7be7?raw=1",
+    "topics": "Numeric transformations, categorical encodings, text feature extraction."
+  },
+  {
+    "title": "Introduction & Intermediate Deep Learning with PyTorch",
+    "issuer": "DataCamp",
+    "credentialUrl": "https://www.datacamp.com/statement-of-accomplishment/course/b4eed4172ee0c6f250a31cd0b1d90e3563a7e095?raw=1",
+    "topics": "Tensors, backpropagation, convolutional networks, hyperparameter tuning."
+  },
+  {
+    "title": "Explainable AI with SHAP and LIME",
+    "issuer": "DataCamp",
+    "credentialUrl": "https://www.datacamp.com/statement-of-accomplishment/course/fa0f590081d4b3952f7162db064d254c19475288?raw=1",
+    "topics": "Shapley values, local surrogate models, global feature importance."
+  },
+  {
+    "title": "MLOps Fundamentals",
+    "issuer": "DataCamp",
+    "credentialUrl": "https://www.datacamp.com/statement-of-accomplishment/track/06dcc05f63006c3b4e3177535f4bd352c7ccbbaf?raw=1",
+    "topics": "Model registry, monitoring, CI/CD for machine learning pipelines."
+  },
+  {
+    "title": "Full-Stack Web Development",
+    "issuer": "YouAccel",
+    "credentialUrl": "https://drive.google.com/file/d/1qDYq818skYUAwQrIF95fCXY0wWQZsugh/view",
+    "topics": "MERN architecture, REST conventions, JWT auth, database design."
+  },
+  {
+    "title": "Software Engineering Internship",
+    "issuer": "Laxmi Steels Ltd.",
+    "credentialUrl": "https://raw.githubusercontent.com/Rustam-Shrestha/Rustam-Shrestha/main/assets/icert.pdf",
+    "topics": "Industrial software development, database maintenance, logistics backend."
+  }
+]

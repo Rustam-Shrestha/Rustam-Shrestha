@@ -1,0 +1,52 @@
+[
+  {
+    "id": "jyrasoft",
+    "number": "01",
+    "role": "Full-Stack MERN Developer (ERP Systems)",
+    "company": "JYRA Soft, YBC ERP",
+    "location": "Kathmandu, Nepal",
+    "period": "December 2025 — Present",
+    "type": "Full-time",
+    "description": "Architecting and engineering core enterprise resource planning (ERP) modules with high data integrity, strict multi-tenant isolation, and modular React architectures.",
+    "highlights": [
+      "Engineered mission-critical ERP modules combining React.js frontend and Node.js microservices",
+      "Optimized relational database query execution plans, reducing bottleneck latency across high-volume tables",
+      "Implemented standardized reusable UI component primitives following strict design token specifications",
+      "Collaborated on role-based access control (RBAC) and audit trail verification mechanisms"
+    ],
+    "technologies": ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Tailwind CSS", "Zustand"]
+  },
+  {
+    "id": "saurabh-group",
+    "number": "02",
+    "role": "Full-Stack Developer",
+    "company": "Saurabh Group of IT, Sarbottam and Laxmi Steels",
+    "location": "Kathmandu, Nepal",
+    "period": "April 2025 — July 2025",
+    "type": "Full-time",
+    "description": "Engineered steel manufacturing and logistics backend infrastructure managing extensive industrial ledger operations.",
+    "highlights": [
+      "Built high-capacity steel logistics system handling over 500,000 active records in PHP and MySQL",
+      "Achieved a 35% improvement in database query throughput and 20% reduction in API response times",
+      "Implemented secure authentication pipelines and team deployment workflows containerized with Docker",
+      "Constructed inventory reconciliation and dispatch report generators for logistics auditing"
+    ],
+    "technologies": ["PHP", "MySQL", "JavaScript", "Docker", "REST APIs", "Linux"]
+  },
+  {
+    "id": "kath-khabar",
+    "number": "03",
+    "role": "Graphic Designer & Creative Strategist",
+    "company": "काठ खबर मिडिया (Kath Media)",
+    "location": "Lagankhel, Lalitpur, Nepal",
+    "period": "November 2024 — March 2025",
+    "type": "Full-time",
+    "description": "Spearheaded digital visual identities and media assets for a leading national digital news outlet.",
+    "highlights": [
+      "Designed editorial thumbnails, infocards, and visual branding systems for high-traffic media channels",
+      "Maintained strict visual guidelines, typography consistency, and layout readability across publication media",
+      "Collaborated with editorial team to produce fast-turnaround visual assets under tight publishing deadlines"
+    ],
+    "technologies": ["Adobe Photoshop", "Visual Strategy", "Typography", "Editorial Layout"]
+  }
+]

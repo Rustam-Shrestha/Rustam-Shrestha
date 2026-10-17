@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Santosh (Rustam) Shrestha | Redirecting...</title>
+    <script>
+      // Single Page Application redirect script for GitHub Pages & static hosting
+      // Compatible with custom domains, GitHub user pages, and GitHub project pages (username.github.io/repo)
+      (function () {
+        var l = window.location;
+        var hostname = l.hostname;
+
+        // Strip www prefix if present for canonical consistency
+        if (hostname.indexOf('www.') === 0) {
+          hostname = hostname.slice(4);
+        }
+
+        // On GitHub Pages project sites (e.g. username.github.io/repo-name/), keep the repo segment
+        var pathSegments = l.pathname.slice(1).split('/').filter(Boolean);
+        var isGithubProject = hostname.indexOf('github.io') > -1 && pathSegments.length > 0 && !hostname.startsWith(pathSegments[0] + '.');
+        var pathSegmentsToKeep = isGithubProject ? 1 : 0;
+
+        var repoPrefix = pathSegmentsToKeep > 0 ? '/' + pathSegments.slice(0, pathSegmentsToKeep).join('/') : '';
+        var routePath = pathSegments.slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~');
+        var search = l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '';
+        var newUrl = l.protocol + '//' + hostname + (l.port ? ':' + l.port : '') + repoPrefix + '/?/' + routePath + search + l.hash;
+
+        l.replace(newUrl);
+      })();
+    </script>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background-color: #FAFAF9;
+        color: #111827;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        text-align: center;
+        padding: 20px;
+      }
+      h2 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #166534;
+        margin-bottom: 8px;
+      }
+      p {
+        font-size: 0.9rem;
+        color: #6B7280;
+      }
+      a {
+        color: #166534;
+        font-weight: 600;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Redirecting to portfolio...</h2>
+    <p>If you are not redirected automatically, <a href="./">click here to return home</a>.</p>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "ram-sharma-bhattarai",
+    "name": "Ram Sharma Bhattarai",
+    "prefix": "Mr.",
+    "role": "Chief Executive Officer",
+    "organization": "Jyrasoft",
+    "phone": "+977 9848914876",
+    "category": "Industry Leadership",
+    "relationship": "Industry Employer & Executive",
+    "initials": "RB",
+    "featured": true,
+    "quote": "Rustam has demonstrated outstanding technical competency and professional excellence throughout his career. His dedication to continuous learning and his ability to deliver impactful solutions make him an exceptional professional."
+  },
+  {
+    "id": "deepak-poudel",
+    "name": "Deepak Poudel",
+    "prefix": "Mr.",
+    "role": "Deputy Head, BCA Program",
+    "organization": "Saraswati Multiple Campus (Tribhuvan University)",
+    "phone": "+977 9863382689",
+    "category": "Academic Mentorship",
+    "relationship": "Academic Leadership & Faculty",
+    "initials": "DP",
+    "featured": true,
+    "quote": "Rustam is one of the most hardworking and ambitious students I have encountered. He’s respectful, highly disciplined, and shows a strong desire to grow both personally and professionally."
+  },
+  {
+    "id": "sabin-khanal",
+    "name": "Sabin Khanal",
+    "prefix": "Mr.",
+    "role": "Mentor & Faculty",
+    "organization": "Faculty of Computer Science",
+    "phone": "+977 9863180880",
+    "category": "Academic Mentorship",
+    "relationship": "Academic Faculty Mentor",
+    "initials": "SK",
+    "featured": true,
+    "quote": "Rustam has consistently demonstrated exceptional dedication to both his academic pursuits and technical work. His ability to stay focused, deliver results, and maintain discipline in challenging environments is truly commendable."
+  },
+  {
+    "id": "shree-acharya",
+    "name": "Shree Acharya",
+    "prefix": "Mr.",
+    "role": "System Evaluator & End User",
+    "organization": "Enterprise System Verification",
+    "phone": "+977 9802266522",
+    "category": "System & Technical Evaluation",
+    "relationship": "System Evaluation & Feedback",
+    "initials": "SA",
+    "featured": false,
+    "quote": "During his internship, Rustam implemented system features based on our daily feedback with precision and persistence. His responsiveness and ability to understand user needs made the development process smooth and effective."
+  },
+  {
+    "id": "santosh-baral",
+    "name": "Santosh Baral",
+    "prefix": "Mr.",
+    "role": "Internship Mentor",
+    "organization": "Engineering Mentorship",
+    "phone": "+977 9702266549",
+    "category": "Internship & Supervision",
+    "relationship": "Engineering Internship Mentor",
+    "initials": "SB",
+    "featured": false,
+    "quote": "Rustam delivered prompt, high quality outputs throughout his internship. He stood out as one of the most organized contributors, maintaining clear documentation and tracking progress with impressive consistency."
+  },
+  {
+    "id": "manoj-giri",
+    "name": "Manoj Giri",
+    "prefix": "Er.",
+    "role": "Project Supervisor",
+    "organization": "Technical Project Supervision",
+    "phone": "+977 9851318631",
+    "category": "Internship & Supervision",
+    "relationship": "Technical Project Supervisor",
+    "initials": "MG",
+    "featured": false,
+    "quote": "Rustam’s project work was supervised with great satisfaction. His ability to integrate technical skills with clear documentation and ample research made him the most punctilious individual."
+  }
+]

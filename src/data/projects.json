@@ -1,0 +1,148 @@
+[
+  {
+    "id": "finguard",
+    "number": "01",
+    "title": "FinGuard: Multi-Tenant Loan & Credit Risk System",
+    "category": "Machine Learning & Full Stack",
+    "tagline": "Enterprise loan management with real-time XGBoost credit risk scoring and SHAP factor analysis.",
+    "description": "Multi-tenant PERN stack loan platform with an applied ML credit-risk microservice built on FastAPI. Integrates an XGBoost classification pipeline evaluated with cost-weighted thresholding and SHAP explainability.",
+    "metrics": [
+      "85.01% Prediction Accuracy on holdout split",
+      "0.7630 5-Fold Cross-Validation AUC-ROC",
+      "Cost-weighted decision threshold: 0.3748"
+    ],
+    "tags": ["React", "TypeScript", "FastAPI", "XGBoost", "PostgreSQL", "Prisma", "Redis", "SHAP"],
+    "image": "./images/projects/finguard.webp",
+    "githubUrl": "https://github.com/Rustam-Shrestha/el-proyecto-de-anos-final",
+    "featured": true
+  },
+  {
+    "id": "ai-lyric-generator",
+    "number": "02",
+    "title": "AI Lyric & Next-Word Generator (PyTorch LSTM)",
+    "category": "Deep Learning",
+    "tagline": "PyTorch LSTM language model trained on song lyrics for sequence prediction and lyric generation.",
+    "description": "A PyTorch-based LSTM language model trained on song lyrics (lyric_dataset.txt) that performs next-word prediction and lyric generation by continuing user-provided text prompts. Features tokenization, learned word embeddings, and a FastAPI inference server.",
+    "metrics": [
+      "Sequence prediction via LSTM network",
+      "Trained on lyric_dataset.txt corpus",
+      "FastAPI inference API endpoint"
+    ],
+    "tags": ["PyTorch", "LSTM", "NLP", "FastAPI", "Deep Learning", "NLTK", "Python"],
+    "image": "./images/projects/lyricverse.webp",
+    "githubUrl": "https://github.com/Rustam-Shrestha/deep_learning_for_text_pytorch/tree/main/next_word_pred",
+    "featured": true
+  },
+  {
+    "id": "datasphere",
+    "number": "03",
+    "title": "DataSphere: Structured Data Intelligence",
+    "category": "Full Stack",
+    "tagline": "Automated spreadsheet ingestion, natural language querying, and dynamic data visualizer.",
+    "description": "Ingests spreadsheets and CSV files into PostgreSQL, supports CRUD operations through a clean UI, provides natural language querying capabilities, and renders lightweight, instant data visualizations.",
+    "metrics": [
+      "Natural Language SQL Generation",
+      "Multi-format CSV / XLSX Ingestion"
+    ],
+    "tags": ["Python", "FastAPI", "React", "PostgreSQL", "Pandas"],
+    "image": "./images/projects/datasphere.webp",
+    "githubUrl": "https://github.com/Rustam-Shrestha/DataSphere",
+    "featured": true
+  },
+  {
+    "id": "expendwise",
+    "number": "04",
+    "title": "ExpendWise: Predictive Expense Management",
+    "category": "Machine Learning",
+    "tagline": "Smart expense tracking system with automated spending category prediction.",
+    "description": "Personal finance management application that aggregates transactions and leverages predictive models to forecast upcoming monthly spending, detect anomalies, and suggest budget optimizations.",
+    "metrics": [
+      "Predictive Monthly Run-rate",
+      "Automated Category Tagging"
+    ],
+    "tags": ["React", "Python", "scikit-learn", "FastAPI", "Tailwind CSS"],
+    "image": "./images/projects/expendwise.webp",
+    "githubUrl": "https://github.com/Rustam-Shrestha/expendwise",
+    "featured": true
+  },
+  {
+    "id": "face-attendance",
+    "number": "05",
+    "title": "Biometric Face Attendance System",
+    "category": "Computer Vision",
+    "tagline": "High-accuracy facial recognition attendance pipeline with optimized database queries.",
+    "description": "Full-stack biometric attendance system using PHP, FastAPI, MySQL, Haar Cascade, and Random Forest classifier. Engineered database indexing and image preprocessing achieving 95% recognition accuracy with optimized query execution.",
+    "metrics": [
+      "95% Facial Recognition Accuracy",
+      "Indexed SQL schema for lower latency"
+    ],
+    "tags": ["Python", "OpenCV", "Haar Cascade", "FastAPI", "PHP", "MySQL"],
+    "image": "./images/projects/face-attendance.webp",
+    "githubUrl": "https://github.com/Rustam-Shrestha/snapattendance_reengineered",
+    "featured": false
+  },
+  {
+    "id": "duplicate-question",
+    "number": "06",
+    "title": "Lexical Duplicate Question Detector",
+    "category": "Natural Language Processing",
+    "tagline": "NLP duplicate question classifier with token features and fuzzy substring ratios.",
+    "description": "Streamlit NLP classifier using Random Forest and XGBoost with token features, substring ratios, and fuzzy string matching to detect semantically duplicate queries with 72% accuracy.",
+    "metrics": [
+      "72% Classification Accuracy",
+      "Fuzzy & Token Ratio Feature Engineering"
+    ],
+    "tags": ["Python", "Streamlit", "XGBoost", "scikit-learn", "NLP"],
+    "image": "./images/projects/duplicate-detector.webp",
+    "githubUrl": "https://github.com/Rustam-Shrestha/quora_lexical_duplicate_classifier",
+    "featured": false
+  },
+  {
+    "id": "digitalmandu",
+    "number": "07",
+    "title": "DigitalMandu: Multi-Vendor Marketplace",
+    "category": "Full Stack",
+    "tagline": "Multi-vendor food delivery and e-commerce infrastructure.",
+    "description": "Multi-vendor delivery platform in the style of modern delivery applications featuring cart management, role-based store controls, live order tracking, and clean checkout workflows.",
+    "metrics": [
+      "Multi-vendor Store Isolation",
+      "Role-Based Access Control"
+    ],
+    "tags": ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+    "image": "./images/projects/digitalmandu.webp",
+    "githubUrl": "https://github.com/Rustam-Shrestha/digitalmandu-platform",
+    "featured": false
+  },
+  {
+    "id": "chatopia",
+    "number": "08",
+    "title": "Chatopia: Real-Time Collaborative Messaging",
+    "category": "Full Stack",
+    "tagline": "Real-time WebSocket chat application supporting 100+ concurrent sessions.",
+    "description": "MERN and WebSocket chat application supporting 100+ concurrent users with JWT authentication, instant message broadcasting, active status indicators, and Zustand client state management.",
+    "metrics": [
+      "100+ Concurrent Active Sockets",
+      "Instant Room Broadcasts"
+    ],
+    "tags": ["React", "Socket.io", "Node.js", "MongoDB", "Zustand"],
+    "image": "./images/projects/chatopia.webp",
+    "githubUrl": "https://github.com/Rustam-Shrestha/chatopia",
+    "featured": false
+  },
+  {
+    "id": "falodhyam",
+    "number": "09",
+    "title": "Falodhyam Agricultural E-Commerce",
+    "category": "Full Stack",
+    "tagline": "Agricultural trade portal with catalog, wishlist, and inventory tracking.",
+    "description": "Full-featured agricultural commerce platform with role-based access, automated stock inventory management, cart workflows, and responsive customer interface.",
+    "metrics": [
+      "Live Inventory Deduplication",
+      "Customer Wishlist & Checkout"
+    ],
+    "tags": ["PHP", "MySQL", "JavaScript", "Bootstrap"],
+    "image": "./images/projects/falodhyam.webp",
+    "githubUrl": "https://github.com/Rustam-Shrestha/falodhyam",
+    "featured": false
+  }
+]

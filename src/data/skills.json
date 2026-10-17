@@ -1,0 +1,43 @@
+[
+  {
+    "category": "Languages",
+    "description": "Core programming and scripting languages used across system backends, ML pipelines, and client applications.",
+    "items": ["Python", "JavaScript", "TypeScript", "Java", "C", "C#", "PHP", "MATLAB", "SQL"]
+  },
+  {
+    "category": "Frontend Engineering",
+    "description": "Modern component architectures, design systems, reactive state, and accessible responsive interfaces.",
+    "items": ["React", "Next.js", "Tailwind CSS", "HTML5", "CSS3 / PostCSS", "Zustand", "Framer Motion", "Vite"]
+  },
+  {
+    "category": "Backend & APIs",
+    "description": "Scalable REST microservices, asynchronous queues, WebSocket real-time conduits, and ORMs.",
+    "items": ["Node.js", "Express.js", "FastAPI", "Prisma ORM", ".NET", "RESTful APIs", "WebSockets / Socket.io"]
+  },
+  {
+    "category": "Databases & Storage",
+    "description": "Relational schema design, query optimization, caching strategies, and document databases.",
+    "items": ["PostgreSQL", "MySQL", "MongoDB", "Redis"]
+  },
+  {
+    "category": "Machine Learning & Data",
+    "description": "Feature engineering, predictive gradient boosted models, deep neural networks, and model interpretability.",
+    "items": [
+      "XGBoost",
+      "LightGBM",
+      "CatBoost",
+      "scikit-learn",
+      "PyTorch",
+      "TensorFlow",
+      "Pandas",
+      "NumPy",
+      "SHAP",
+      "OpenCV"
+    ]
+  },
+  {
+    "category": "DevOps & Tooling",
+    "description": "Version control, container orchestration, developer tools, and operational environments.",
+    "items": ["Git", "GitHub", "Docker", "Kubernetes", "Streamlit", "Linux", "Postman", "ESLint"]
+  }
+]

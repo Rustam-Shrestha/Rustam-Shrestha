@@ -1,0 +1,67 @@
+[
+  {
+    "id": "moment-01",
+    "image": "./images/gallery/1.webp",
+    "alt": "Travel & snapshot 1"
+  },
+  {
+    "id": "moment-02",
+    "image": "./images/gallery/2.webp",
+    "alt": "Travel & snapshot 2"
+  },
+  {
+    "id": "moment-03",
+    "image": "./images/gallery/3.webp",
+    "alt": "Travel & snapshot 3"
+  },
+  {
+    "id": "moment-04",
+    "image": "./images/gallery/4.webp",
+    "alt": "Travel & snapshot 4"
+  },
+  {
+    "id": "moment-05",
+    "image": "./images/gallery/5.webp",
+    "alt": "Travel & snapshot 5"
+  },
+  {
+    "id": "moment-06",
+    "image": "./images/gallery/6.webp",
+    "alt": "Travel & snapshot 6"
+  },
+  {
+    "id": "moment-07",
+    "image": "./images/gallery/7.webp",
+    "alt": "Travel & snapshot 7"
+  },
+  {
+    "id": "moment-08",
+    "image": "./images/gallery/8.webp",
+    "alt": "Travel & snapshot 8"
+  },
+  {
+    "id": "moment-09",
+    "image": "./images/gallery/9.webp",
+    "alt": "Travel & snapshot 9"
+  },
+  {
+    "id": "moment-10",
+    "image": "./images/gallery/10.webp",
+    "alt": "Travel & snapshot 10"
+  },
+  {
+    "id": "moment-11",
+    "image": "./images/gallery/11.webp",
+    "alt": "Travel & snapshot 11"
+  },
+  {
+    "id": "moment-12",
+    "image": "./images/gallery/12.webp",
+    "alt": "Travel & snapshot 12"
+  },
+  {
+    "id": "moment-13",
+    "image": "./images/gallery/13.webp",
+    "alt": "Travel & snapshot 13"
+  }
+]
