@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import { Hero } from '@/components/Hero'
 import { Container } from '@/components/Container'
 import { SectionTitle } from '@/components/SectionTitle'
-import { ProjectCard } from '@/components/ProjectCard'
+import { ProjectCard, type ProjectItem } from '@/components/ProjectCard'
+import { ProjectModal } from '@/components/ProjectModal'
 import { Timeline } from '@/components/Timeline'
 import { SkillCard } from '@/components/SkillCard'
 import { Tabs } from '@/components/Tabs'
@@ -33,8 +34,8 @@ import {
 } from '@/data'
 
 export const HomePage: React.FC = () => {
-  // Category tabs for projects
   const [activeCategory, setActiveCategory] = useState('All')
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null)
   const [contactName, setContactName] = useState('')
   const [contactEmail, setContactEmail] = useState('')
   const [contactMessage, setContactMessage] = useState('')
@@ -90,7 +91,7 @@ export const HomePage: React.FC = () => {
         <Container size="xl">
           <SectionTitle
             number="01"
-            badge="ENGINEERING BACKGROUND"
+            badge="SOFTWARE & APPLIED ML"
             title="Building systems at the intersection of"
             highlight="web platforms & applied ML"
             description={personalData.bio}
@@ -103,7 +104,7 @@ export const HomePage: React.FC = () => {
                 <div className="flex items-center justify-between pb-4 border-b border-[#E5E7EB]">
                   <div>
                     <span className="font-mono text-xs text-[#166534] font-semibold">
-                      DEGREE //
+                      DEGREE
                     </span>
                     <h3 className="font-heading text-xl font-bold text-[#111827] mt-0.5">
                       {personalData.education.degree}
@@ -161,7 +162,7 @@ export const HomePage: React.FC = () => {
                     Applied ML Exploration
                   </h4>
                   <p className="text-xs text-[#6B7280] mt-1.5 leading-relaxed">
-                    Building practical machine learning projects—from credit risk classification to PyTorch sequence models—to deepen applied AI knowledge alongside full-stack engineering.
+                    Building practical machine learning projects (from credit risk classification to PyTorch sequence models) to deepen applied AI knowledge alongside full-stack engineering.
                   </p>
                 </Card>
               </div>
@@ -245,8 +246,8 @@ export const HomePage: React.FC = () => {
             <SectionTitle
               number="03"
               badge="PORTFOLIO"
-              title="Selected engineering"
-              highlight="projects & platforms"
+              title="Project Showcase &"
+              highlight="Technical Implementations"
               description="A curated catalog of production machine learning architectures, data intelligence systems, and full-stack web platforms."
               className="mb-0"
             />
@@ -263,9 +264,20 @@ export const HomePage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <ProjectCard
+                key={project.id}
+                project={project}
+                onOpenDetails={setSelectedProject}
+              />
             ))}
           </div>
+
+          {/* Project Lightbox Modal */}
+          <ProjectModal
+            project={selectedProject}
+            isOpen={!!selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
         </Container>
       </section>
 
@@ -433,7 +445,7 @@ export const HomePage: React.FC = () => {
                   {item.phone && (
                     <div className="mt-3 pt-2.5 border-t border-dashed border-[#E5E7EB] flex items-center justify-between text-xs">
                       <span className="font-mono text-[#9CA3AF] text-[11px]">
-                        Verification //
+                        Direct Verification
                       </span>
                       <a
                         href={`tel:${item.phone.replace(/\s+/g, '')}`}

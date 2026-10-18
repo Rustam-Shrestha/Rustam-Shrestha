@@ -1,7 +1,8 @@
 import { useState, useMemo } from 'react'
 import { Container } from '@/components/Container'
 import { SectionTitle } from '@/components/SectionTitle'
-import { ProjectCard } from '@/components/ProjectCard'
+import { ProjectCard, type ProjectItem } from '@/components/ProjectCard'
+import { ProjectModal } from '@/components/ProjectModal'
 import { Tabs } from '@/components/Tabs'
 import { Gallery } from '@/components/Gallery'
 import { Seo } from '@/components/Seo'
@@ -10,6 +11,7 @@ import { SITE_CONFIG } from '@/utils'
 
 export const ProjectsPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('All')
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null)
 
   const categories = useMemo(() => {
     const rawCategories = Array.from(new Set(projectsData.map((p) => p.category)))
@@ -58,9 +60,20 @@ export const ProjectsPage: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onOpenDetails={setSelectedProject}
+            />
           ))}
         </div>
+
+        {/* Project Lightbox Modal */}
+        <ProjectModal
+          project={selectedProject}
+          isOpen={!!selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
 
         {/* Visual Glimpses Showcase Carousel */}
         <div className="mt-20 pt-16 border-t border-[#E5E7EB]">

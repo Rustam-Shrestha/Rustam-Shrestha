@@ -3,50 +3,51 @@
     "id": "jyrasoft",
     "number": "01",
     "role": "Full-Stack MERN Developer (ERP Systems)",
-    "company": "JYRA Soft, YBC ERP",
+    "company": "JYRA Soft (YBC ERP)",
     "location": "Kathmandu, Nepal",
-    "period": "December 2025 — Present",
+    "period": "December 2025 - Present",
     "type": "Full-time",
     "description": "Architecting and engineering core enterprise resource planning (ERP) modules with high data integrity, strict multi-tenant isolation, and modular React architectures.",
     "highlights": [
-      "Engineered mission-critical ERP modules combining React.js frontend and Node.js microservices",
-      "Optimized relational database query execution plans, reducing bottleneck latency across high-volume tables",
-      "Implemented standardized reusable UI component primitives following strict design token specifications",
-      "Collaborated on role-based access control (RBAC) and audit trail verification mechanisms"
+      "Re-engineered legacy codebase from prop-drilling hurdles into modular React components with Redux Toolkit state slices and TanStack Query caching, reducing redundant database roundtrips by 35-40%",
+      "Built end-to-end timesheet management, periodic task scheduling, dynamic assignments, leave management, and resignation day-off workflows",
+      "Engineered accounting modules: staff remuneration, allowances, accountant dashboards, budget setting, payroll, and fine-grained RBAC/ABAC controls",
+      "Implemented reusable Express middlewares resolving duplicate requests, nested loop data population bottlenecks, and floating-point calculation errors",
+      "Integrated Redis caching and hash sets for session sync and endpoint latency reduction"
     ],
-    "technologies": ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Tailwind CSS", "Zustand"]
+    "technologies": ["React", "JavaScript", "Redux Toolkit", "TanStack Query", "Node.js", "Express", "Redis", "Docker", "Tailwind CSS", "Locust", "Playwright"]
   },
   {
     "id": "saurabh-group",
     "number": "02",
     "role": "Full-Stack Developer",
-    "company": "Saurabh Group of IT, Sarbottam and Laxmi Steels",
+    "company": "Saurabh Group (Sarbottam & Laxmi Steels)",
     "location": "Kathmandu, Nepal",
-    "period": "April 2025 — July 2025",
+    "period": "April 2025 - July 2025",
     "type": "Full-time",
     "description": "Engineered steel manufacturing and logistics backend infrastructure managing extensive industrial ledger operations.",
     "highlights": [
-      "Built high-capacity steel logistics system handling over 500,000 active records in PHP and MySQL",
-      "Achieved a 35% improvement in database query throughput and 20% reduction in API response times",
-      "Implemented secure authentication pipelines and team deployment workflows containerized with Docker",
-      "Constructed inventory reconciliation and dispatch report generators for logistics auditing"
+      "Migrated legacy manual raw SQL joins and nested loops to Laravel Eloquent ORM with eager/lazy loading, increasing query throughput by 35%",
+      "Built industrial logistics, scrap in/out quality tracking, and weighment systems with audit logs for workers, admins, and directors",
+      "Developed authorized agent systems with PAN validation and long-term booklet sales tracking with date-indexed query optimizations",
+      "Profiled database throughput and latency using Python Locust",
+      "Offloaded heavy validation to the frontend to minimize server load"
     ],
-    "technologies": ["PHP", "MySQL", "JavaScript", "Docker", "REST APIs", "Linux"]
+    "technologies": ["PHP", "Laravel", "Eloquent ORM", "Composer", "MySQL", "Docker", "Tailwind CSS", "Flyenv", "Locust"]
   },
   {
     "id": "kath-khabar",
     "number": "03",
-    "role": "Graphic Designer & Creative Strategist",
-    "company": "काठ खबर मिडिया (Kath Media)",
+    "role": "Graphic Designer & Concept Artist",
+    "company": "Kath Khabar Media (काठ खबर)",
     "location": "Lagankhel, Lalitpur, Nepal",
-    "period": "November 2024 — March 2025",
+    "period": "November 2024 - March 2025",
     "type": "Full-time",
     "description": "Spearheaded digital visual identities and media assets for a leading national digital news outlet.",
     "highlights": [
-      "Designed editorial thumbnails, infocards, and visual branding systems for high-traffic media channels",
-      "Maintained strict visual guidelines, typography consistency, and layout readability across publication media",
-      "Collaborated with editorial team to produce fast-turnaround visual assets under tight publishing deadlines"
+      "Produced routine publication graphics, breaking news banners, and YouTube thumbnails under rapid publication deadlines",
+      "Created visual concept campaigns for cultural events including Shivaratri, Saraswati Puja, and International Women's Day"
     ],
-    "technologies": ["Adobe Photoshop", "Visual Strategy", "Typography", "Editorial Layout"]
+    "technologies": ["Adobe Photoshop", "Microsoft Designer", "Visual Branding", "Digital Media", "Typography"]
   }
 ]

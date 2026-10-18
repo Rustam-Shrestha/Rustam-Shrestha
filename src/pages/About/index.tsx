@@ -47,7 +47,7 @@ export const AboutPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#E5E7EB]">
                 <div>
                   <span className="font-mono text-xs text-[#166534] font-bold">
-                    FORMAL ACADEMICS //
+                    FORMAL ACADEMICS
                   </span>
                   <h3 className="font-heading text-xl font-bold text-[#111827] mt-1">
                     {personalData.education.degree}
@@ -131,7 +131,7 @@ export const AboutPage: React.FC = () => {
         <div className="mt-16 sm:mt-24 pt-12 border-t border-[#E5E7EB]">
           <div className="max-w-2xl mb-8">
             <span className="font-mono text-xs text-[#166534] font-bold tracking-wider uppercase">
-              CAREER PATHWAY //
+              CAREER PATHWAY
             </span>
             <h3 className="font-heading text-2xl sm:text-3xl font-bold text-[#111827] mt-1.5">
               Work Experience & Contributions
@@ -147,7 +147,7 @@ export const AboutPage: React.FC = () => {
         <div className="mt-16 sm:mt-24 pt-12 border-t border-[#E5E7EB]">
           <div className="max-w-2xl mb-8">
             <span className="font-mono text-xs text-[#166534] font-bold tracking-wider uppercase">
-              VERIFIED KNOWLEDGE //
+              VERIFIED KNOWLEDGE
             </span>
             <h3 className="font-heading text-2xl sm:text-3xl font-bold text-[#111827] mt-1.5">
               Verified Certifications & Credentials

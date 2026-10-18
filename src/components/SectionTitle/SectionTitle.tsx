@@ -30,7 +30,7 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
       {(number || badge) && (
         <div className="flex items-center gap-2 mb-3">
           <span className="font-mono text-xs tracking-wider uppercase text-[#166534] font-semibold">
-            {number ? `[${number} // ${badge || ''}]` : `[${badge}]`}
+            {number && badge ? `${number} · ${badge}` : (number || badge)}
           </span>
         </div>
       )}

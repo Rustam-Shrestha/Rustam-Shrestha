@@ -10,7 +10,7 @@ export const NotFoundPage: React.FC = () => {
       <Seo title="404 - Page Not Found" description="The requested route could not be resolved." />
       <Container size="md" className="text-center">
         <span className="font-mono text-xs font-bold text-[#166534] tracking-widest uppercase">
-          [ERROR 404 // UNRESOLVED ROUTE]
+          ERROR 404 · UNRESOLVED ROUTE
         </span>
         <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold font-heading text-[#111827]">
           Page Not Located

@@ -59,7 +59,7 @@ export class ErrorBoundary extends Component<Props, State> {
             {this.state.error?.message && (
               <div className="mt-4 p-3 bg-[#F5F7F6] rounded-[6px] border border-[#E5E7EB] text-left">
                 <span className="font-mono text-[11px] text-[#6B7280] uppercase tracking-wider block mb-1">
-                  Debug Details //
+                  Debug Details
                 </span>
                 <p className="font-mono text-xs text-[#DC2626] break-words">
                   {this.state.error.message}

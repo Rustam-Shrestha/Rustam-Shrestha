@@ -2,16 +2,24 @@
   {
     "id": "finguard",
     "number": "01",
-    "title": "FinGuard: Multi-Tenant Loan & Credit Risk System",
+    "title": "FinGuard: Multi-Tenant Loan & ML Risk System",
     "category": "Machine Learning & Full Stack",
     "tagline": "Enterprise loan management with real-time XGBoost credit risk scoring and SHAP factor analysis.",
-    "description": "Multi-tenant PERN stack loan platform with an applied ML credit-risk microservice built on FastAPI. Integrates an XGBoost classification pipeline evaluated with cost-weighted thresholding and SHAP explainability.",
+    "description": "Multi-tenant PERN / FastAPI loan system engineered with 4 distinct actor roles (Superadmin, Tenant Admin, Worker, Customer), integrating an XGBoost credit risk classification model evaluated with cost-weighted thresholding and real-time SHAP explainability.",
+    "overview": "FinGuard is an enterprise loan platform architected with strict multi-tenant isolation and 4 distinct actor roles (Superadmin, Tenant Admin, Worker, and Customer). The system offloads credit-risk evaluation to a high-throughput Python/FastAPI microservice running an XGBoost gradient-boosted decision tree pipeline.",
+    "pipeline": [
+      "Role-based multi-tenant PERN core with granular permissions for Superadmins, Tenant Admins, Workers, and Customers",
+      "High-throughput FastAPI microservice serving real-time credit-risk inferences",
+      "XGBoost classification model evaluated with cost-weighted approval threshold (0.3748)",
+      "Real-time SHAP factor analysis providing transparent risk explanations for loan officers"
+    ],
     "metrics": [
       "85.01% Prediction Accuracy on holdout split",
       "0.7630 5-Fold Cross-Validation AUC-ROC",
-      "Cost-weighted decision threshold: 0.3748"
+      "Cost-weighted decision threshold: 0.3748",
+      "4 Distinct Multi-tenant Actor Roles"
     ],
-    "tags": ["React", "TypeScript", "FastAPI", "XGBoost", "PostgreSQL", "Prisma", "Redis", "SHAP"],
+    "tags": ["React", "TypeScript", "FastAPI", "XGBoost", "PostgreSQL", "Prisma", "Redis", "SHAP", "Docker"],
     "image": "./images/projects/finguard.webp",
     "githubUrl": "https://github.com/Rustam-Shrestha/el-proyecto-de-anos-final",
     "featured": true
@@ -22,11 +30,18 @@
     "title": "AI Lyric & Next-Word Generator (PyTorch LSTM)",
     "category": "Deep Learning",
     "tagline": "PyTorch LSTM language model trained on song lyrics for sequence prediction and lyric generation.",
-    "description": "A PyTorch-based LSTM language model trained on song lyrics (lyric_dataset.txt) that performs next-word prediction and lyric generation by continuing user-provided text prompts. Features tokenization, learned word embeddings, and a FastAPI inference server.",
+    "description": "PyTorch-based LSTM neural network language model trained on lyric_dataset.txt corpus with NLTK tokenization, learned word embeddings, and a FastAPI inference server for real-time text completion.",
+    "overview": "A deep learning sequence generation engine built with PyTorch. The model tokenizes text using NLTK, trains an LSTM network with embedding layers over lyric_dataset.txt, and serves inference through an asynchronous FastAPI endpoint with temperature-controlled sampling.",
+    "pipeline": [
+      "Text preprocessing and NLTK vocabulary tokenization over lyric_dataset.txt",
+      "Sequence modeling with multi-layer LSTM and learned dense word embedding representations",
+      "Temperature-controlled multinomial next-word probability distribution sampling",
+      "FastAPI inference server containerized for low-latency prompt completion"
+    ],
     "metrics": [
-      "Sequence prediction via LSTM network",
       "Trained on lyric_dataset.txt corpus",
-      "FastAPI inference API endpoint"
+      "Low-latency FastAPI inference server",
+      "Dynamic temperature-controlled text sampling"
     ],
     "tags": ["PyTorch", "LSTM", "NLP", "FastAPI", "Deep Learning", "NLTK", "Python"],
     "image": "./images/projects/lyricverse.webp",
@@ -38,13 +53,21 @@
     "number": "03",
     "title": "DataSphere: Structured Data Intelligence",
     "category": "Full Stack",
-    "tagline": "Automated spreadsheet ingestion, natural language querying, and dynamic data visualizer.",
-    "description": "Ingests spreadsheets and CSV files into PostgreSQL, supports CRUD operations through a clean UI, provides natural language querying capabilities, and renders lightweight, instant data visualizations.",
-    "metrics": [
-      "Natural Language SQL Generation",
-      "Multi-format CSV / XLSX Ingestion"
+    "tagline": "Automated tabular ingestion, natural language SQL querying, and interactive data visualizer.",
+    "description": "Ingests CSV, XLS, and XLSX tabular data into PostgreSQL, with Python FastAPI backend, React frontend, Gemini API natural language query translation, and interactive charting (early prototype).",
+    "overview": "DataSphere automates the ingestion of arbitrary tabular spreadsheets (CSV, XLS, XLSX) into dynamically generated PostgreSQL tables. An LLM-assisted query engine powered by the Gemini API translates plain English prompts into safe SQL queries, visualized instantaneously via reactive charts.",
+    "pipeline": [
+      "Multi-format ingestion pipeline supporting CSV, XLS, and XLSX spreadsheets",
+      "Automated schema inference and dynamic PostgreSQL table generation",
+      "Gemini API natural language prompt-to-SQL translation layer",
+      "FastAPI backend and React frontend with interactive charting components"
     ],
-    "tags": ["Python", "FastAPI", "React", "PostgreSQL", "Pandas"],
+    "metrics": [
+      "Dynamic CSV, XLS, XLSX ingestion",
+      "Gemini API natural language query translation",
+      "Interactive analytics and charting"
+    ],
+    "tags": ["Python", "FastAPI", "React", "PostgreSQL", "Gemini API", "Pandas", "SQL"],
     "image": "./images/projects/datasphere.webp",
     "githubUrl": "https://github.com/Rustam-Shrestha/DataSphere",
     "featured": true
@@ -52,15 +75,23 @@
   {
     "id": "expendwise",
     "number": "04",
-    "title": "ExpendWise: Predictive Expense Management",
+    "title": "ExpendWise: Financial Risk & Expense Analytics",
     "category": "Machine Learning",
-    "tagline": "Smart expense tracking system with automated spending category prediction.",
-    "description": "Personal finance management application that aggregates transactions and leverages predictive models to forecast upcoming monthly spending, detect anomalies, and suggest budget optimizations.",
-    "metrics": [
-      "Predictive Monthly Run-rate",
-      "Automated Category Tagging"
+    "tagline": "Financial risk classifier and moving-average expense trend forecasting platform.",
+    "description": "Financial risk classifier trained on 5,000 synthetic records with 9 features. Risk tiers mapped via savings ratio. 200-tree RandomForestClassifier (max depth 10) with moving-average expense trend forecasting (clarified no RandomForestRegressor is used and synthetic training limitations noted).",
+    "overview": "Personal finance risk analytics engine. Uses a 200-tree RandomForestClassifier (max depth 10) trained on 5,000 synthetic financial records across 9 distinct economic features. Risk tiers are mapped using savings ratios, and expenditure trends are forecasted using moving-average algorithms.",
+    "pipeline": [
+      "Feature engineering across 9 financial attributes over 5,000 synthetic records",
+      "Risk tier segmentation mapped via empirical savings ratios",
+      "200-tree RandomForestClassifier (max depth 10) classification model",
+      "Moving-average trend forecasting without regressor overfitting"
     ],
-    "tags": ["React", "Python", "scikit-learn", "FastAPI", "Tailwind CSS"],
+    "metrics": [
+      "5,000 synthetic training records across 9 features",
+      "200-tree RandomForestClassifier (max depth 10)",
+      "Moving-average spending trend forecasting"
+    ],
+    "tags": ["React", "Python", "scikit-learn", "Random Forest", "FastAPI", "Tailwind CSS"],
     "image": "./images/projects/expendwise.webp",
     "githubUrl": "https://github.com/Rustam-Shrestha/expendwise",
     "featured": true
@@ -68,15 +99,26 @@
   {
     "id": "face-attendance",
     "number": "05",
-    "title": "Biometric Face Attendance System",
+    "title": "SnapAttendance: Biometric Face & Geofenced Attendance",
     "category": "Computer Vision",
-    "tagline": "High-accuracy facial recognition attendance pipeline with optimized database queries.",
-    "description": "Full-stack biometric attendance system using PHP, FastAPI, MySQL, Haar Cascade, and Random Forest classifier. Engineered database indexing and image preprocessing achieving 95% recognition accuracy with optimized query execution.",
-    "metrics": [
-      "95% Facial Recognition Accuracy",
-      "Indexed SQL schema for lower latency"
+    "tagline": "Multi-pose facial verification pipeline with HOG-SVM classification and GPS geofencing.",
+    "description": "Biometric attendance system with MTCNN 5-landmark face detector, head-pose gating, 15,876-dim HOG extraction, RBF SVM with 5-fold CV, multi-pose confirmation, and Haversine GPS geofencing within 200m.",
+    "overview": "A high-precision biometric attendance platform. The pipeline detects faces via MTCNN with 5 landmarks, enforces geometric head-pose gating, standardizes images with histogram equalization, extracts 15,876-dimensional HOG features, classifies identity with an RBF-kernel SVM (grid searched C and gamma), confirms across 3 poses (> 0.75 confidence), and verifies location via Haversine GPS geofencing (0.2 km).",
+    "pipeline": [
+      "MTCNN face detection with 5 facial landmarks (eyes, nose, mouth corners) and head-pose gating",
+      "Grayscale preprocessing, equalizeHist histogram equalization, 128x128 resize, and 4x data augmentation",
+      "15,876-dimensional Histogram of Oriented Gradients (HOG) feature extraction",
+      "RBF-kernel SVM tuned with 5-fold cross-validation grid search across C and gamma",
+      "Multi-frame confirmation requiring confidence > 0.75 across 3 distinct poses (front, right, left)",
+      "Haversine formula GPS geofencing endpoint verifying attendance within 0.2 km (200m)"
     ],
-    "tags": ["Python", "OpenCV", "Haar Cascade", "FastAPI", "PHP", "MySQL"],
+    "metrics": [
+      "15,876-dim HOG feature representation",
+      "Multi-frame 3-pose confirmation (> 0.75 confidence)",
+      "Haversine GPS geofence threshold within 200m (0.2 km)",
+      "5-Fold CV Grid Search optimized RBF SVM"
+    ],
+    "tags": ["Python", "OpenCV", "MTCNN", "HOG", "SVM", "FastAPI", "PHP", "MySQL"],
     "image": "./images/projects/face-attendance.webp",
     "githubUrl": "https://github.com/Rustam-Shrestha/snapattendance_reengineered",
     "featured": false
@@ -88,11 +130,19 @@
     "category": "Natural Language Processing",
     "tagline": "NLP duplicate question classifier with token features and fuzzy substring ratios.",
     "description": "Streamlit NLP classifier using Random Forest and XGBoost with token features, substring ratios, and fuzzy string matching to detect semantically duplicate queries with 72% accuracy.",
+    "overview": "An applied NLP system that identifies duplicate question pairs using advanced feature engineering: token count differences, token intersections, fuzzy matching ratios, and length heuristics passed to Random Forest and XGBoost classifiers.",
+    "pipeline": [
+      "Text tokenization, lowercasing, and punctuation filtering",
+      "Fuzzy string ratio and token set matching extraction",
+      "Classification using Random Forest and XGBoost models",
+      "Interactive Streamlit application for real-time duplicate scoring"
+    ],
     "metrics": [
       "72% Classification Accuracy",
-      "Fuzzy & Token Ratio Feature Engineering"
+      "Fuzzy token feature engineering",
+      "Ensemble XGBoost & Random Forest"
     ],
-    "tags": ["Python", "Streamlit", "XGBoost", "scikit-learn", "NLP"],
+    "tags": ["Python", "Streamlit", "XGBoost", "scikit-learn", "NLP", "Pandas"],
     "image": "./images/projects/duplicate-detector.webp",
     "githubUrl": "https://github.com/Rustam-Shrestha/quora_lexical_duplicate_classifier",
     "featured": false
@@ -100,15 +150,23 @@
   {
     "id": "digitalmandu",
     "number": "07",
-    "title": "DigitalMandu: Multi-Vendor Marketplace",
+    "title": "DigitalMandu: Multi-Tenant Marketplace",
     "category": "Full Stack",
-    "tagline": "Multi-vendor food delivery and e-commerce infrastructure.",
-    "description": "Multi-vendor delivery platform in the style of modern delivery applications featuring cart management, role-based store controls, live order tracking, and clean checkout workflows.",
-    "metrics": [
-      "Multi-vendor Store Isolation",
-      "Role-Based Access Control"
+    "tagline": "Multi-tenant e-commerce marketplace with store isolation, Khalti payments, and modular React.",
+    "description": "Multi-tenant e-commerce marketplace with tenant store isolation, product catalog, Khalti payment gateway integration, reviews, ratings, and modular React components.",
+    "overview": "A multi-tenant e-commerce platform offering independent store isolation for vendors, comprehensive product and catalog management, customer reviews and rating systems, and end-to-end checkout integration with the Khalti payment gateway.",
+    "pipeline": [
+      "Multi-tenant vendor store isolation with secure database scoping",
+      "Product catalog management, inventory tracking, and search indexing",
+      "Khalti payment gateway webhook integration and transaction verification",
+      "Modular React frontend with accessible checkout workflows"
     ],
-    "tags": ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+    "metrics": [
+      "Multi-tenant Store Isolation",
+      "Khalti Payment Gateway Integration",
+      "Customer Reviews & Ratings System"
+    ],
+    "tags": ["React", "Node.js", "Express", "MongoDB", "Khalti API", "Tailwind CSS"],
     "image": "./images/projects/digitalmandu.webp",
     "githubUrl": "https://github.com/Rustam-Shrestha/digitalmandu-platform",
     "featured": false
@@ -120,9 +178,17 @@
     "category": "Full Stack",
     "tagline": "Real-time WebSocket chat application supporting 100+ concurrent sessions.",
     "description": "MERN and WebSocket chat application supporting 100+ concurrent users with JWT authentication, instant message broadcasting, active status indicators, and Zustand client state management.",
+    "overview": "High-concurrency instant messaging service built on Socket.io and Node.js. Features room-based chat channels, real-time presence awareness, JWT session authentication, and persistent chat message archives in MongoDB.",
+    "pipeline": [
+      "WebSocket event pipeline for sub-millisecond bidirectional communication",
+      "JWT-based handshake authentication and authorization",
+      "Active user presence tracking and broadcast listeners",
+      "Zustand reactive client state synchronization"
+    ],
     "metrics": [
       "100+ Concurrent Active Sockets",
-      "Instant Room Broadcasts"
+      "Instant Room Broadcasts",
+      "Live Presence Indicators"
     ],
     "tags": ["React", "Socket.io", "Node.js", "MongoDB", "Zustand"],
     "image": "./images/projects/chatopia.webp",
@@ -136,9 +202,17 @@
     "category": "Full Stack",
     "tagline": "Agricultural trade portal with catalog, wishlist, and inventory tracking.",
     "description": "Full-featured agricultural commerce platform with role-based access, automated stock inventory management, cart workflows, and responsive customer interface.",
+    "overview": "Web platform designed to connect agricultural producers with consumers. Provides dedicated inventory controls for agricultural suppliers, structured produce categories, customer cart and wishlist handling, and order fulfillment tracking.",
+    "pipeline": [
+      "Relational database design for perishable agricultural commodities",
+      "Role-based authentication for farmers, distributors, and buyers",
+      "Automated inventory decrementing and re-stock threshold alerts",
+      "Responsive customer ordering and catalog interface"
+    ],
     "metrics": [
       "Live Inventory Deduplication",
-      "Customer Wishlist & Checkout"
+      "Customer Wishlist & Checkout",
+      "Commodity Classification Catalog"
     ],
     "tags": ["PHP", "MySQL", "JavaScript", "Bootstrap"],
     "image": "./images/projects/falodhyam.webp",

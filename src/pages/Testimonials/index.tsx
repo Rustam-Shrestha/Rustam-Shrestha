@@ -145,7 +145,7 @@ export const TestimonialsPage: React.FC = () => {
                 {item.phone && (
                   <div className="mt-4 pt-3 border-t border-dashed border-[#E5E7EB] flex items-center justify-between text-xs">
                     <span className="font-mono text-[#9CA3AF] text-[11px] uppercase tracking-wider">
-                      Direct Verification //
+                      Direct Verification
                     </span>
                     <a
                       href={`tel:${item.phone.replace(/\s+/g, '')}`}

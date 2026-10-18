@@ -11,6 +11,8 @@ export interface ProjectItem {
   category: string
   tagline: string
   description: string
+  overview?: string
+  pipeline?: string[]
   metrics?: string[]
   tags: string[]
   image?: string
@@ -22,14 +24,22 @@ export interface ProjectItem {
 export interface ProjectCardProps {
   project: ProjectItem
   className?: string
+  onOpenDetails?: (project: ProjectItem) => void
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '' }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({
+  project,
+  className = '',
+  onOpenDetails,
+}) => {
   return (
     <Card hoverEffect className={cn('flex flex-col h-full overflow-hidden bg-white group', className)}>
-      {/* Thumbnail */}
+      {/* Thumbnail with Frosted Glass Hover Overlay */}
       {project.image && (
-        <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-[#F5F7F6] border-b border-[#E5E7EB]">
+        <div
+          className="relative w-full h-48 sm:h-52 overflow-hidden bg-[#F5F7F6] border-b border-[#E5E7EB] cursor-pointer"
+          onClick={() => onOpenDetails?.(project)}
+        >
           <img
             src={project.image}
             alt={project.title}
@@ -40,7 +50,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '
             }}
           />
 
-          <div className="absolute top-3 left-3 flex items-center gap-1.5">
+          {/* Frosted Glass View Details Overlay */}
+          <div className="absolute inset-0 bg-[#0F172A]/40 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+            <span className="text-xs font-semibold font-mono text-white px-3 py-1.5 rounded-[6px] bg-white/20 border border-white/30 backdrop-blur-md shadow-xs">
+              View Details
+            </span>
+          </div>
+
+          <div className="absolute top-3 left-3 flex items-center gap-1.5 z-10">
             {project.number && (
               <Badge size="sm" variant="secondary" className="bg-[#111827] text-white border-transparent">
                 {project.number}
@@ -52,7 +69,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '
           </div>
 
           {project.featured && (
-            <div className="absolute top-3 right-3">
+            <div className="absolute top-3 right-3 z-10">
               <Badge size="sm" variant="primary" dot>
                 FEATURED
               </Badge>
@@ -63,7 +80,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '
 
       {/* Content */}
       <CardContent className="flex-1 pt-5 pb-3">
-        <h3 className="font-heading text-lg font-bold text-[#111827] group-hover:text-[#166534] transition-colors leading-snug">
+        <h3
+          className={cn(
+            'font-heading text-lg font-bold text-[#111827] group-hover:text-[#166534] transition-colors leading-snug',
+            onOpenDetails && 'cursor-pointer'
+          )}
+          onClick={() => onOpenDetails?.(project)}
+        >
           {project.title}
         </h3>
 
@@ -97,25 +120,39 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '
         </div>
       </CardContent>
 
-      {/* Footer using Reusable Button Primitives */}
+      {/* Footer with Details button, Code and Demo buttons */}
       <CardFooter className="pt-3 pb-4 border-t border-[#E5E7EB]">
-        <div className="flex items-center gap-2.5 w-full justify-between">
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              tabIndex={-1}
-            >
-              <Button
-                variant="secondary"
-                size="sm"
-                leftIcon={<GithubIcon className="size-3.5 text-[#6B7280]" />}
+        <div className="flex items-center gap-2 w-full justify-between">
+          <div className="flex items-center gap-2">
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                tabIndex={-1}
+                onClick={(e) => e.stopPropagation()}
               >
-                Code
-              </Button>
-            </a>
-          )}
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  leftIcon={<GithubIcon className="size-3.5 text-[#6B7280]" />}
+                >
+                  Code
+                </Button>
+              </a>
+            )}
+
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation()
+                onOpenDetails?.(project)
+              }}
+            >
+              Details
+            </Button>
+          </div>
 
           {project.liveUrl && (
             <a
@@ -123,6 +160,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '
               target="_blank"
               rel="noopener noreferrer"
               tabIndex={-1}
+              onClick={(e) => e.stopPropagation()}
               className="ml-auto"
             >
               <Button

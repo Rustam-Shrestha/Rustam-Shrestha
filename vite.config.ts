@@ -4,7 +4,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/Rustam-Shrestha/',
+  base: process.env.BASE_PATH || './',
   plugins: [react()],
   resolve: {
     alias: {

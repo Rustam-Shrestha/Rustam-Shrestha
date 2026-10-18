@@ -17,13 +17,13 @@ const ROUTES = [
   {
     path: '/',
     dir: '',
-    title: 'Santosh (Rustam) Shrestha | Full-Stack Developer (MERN Stack)',
+    title: 'Santosh (Rustam) Shrestha | Machine Learning & Software Engineer',
     description:
       'Official portfolio of Santosh (Rustam) Shrestha. Exploring production ML systems, full-stack ERP architectures, and scalable web solutions.',
     priority: '1.0',
     changefreq: 'weekly',
     heading: 'Santosh (Rustam) Shrestha',
-    subheading: 'Full-Stack Developer (MERN Stack) · Applied ML Enthusiast',
+    subheading: 'Machine Learning Engineer & Software Engineer (Full-Stack & Applied ML)',
   },
   {
     path: '/about',

@@ -27,7 +27,7 @@ export const RouteErrorBoundary: React.FC = () => {
           !
         </div>
         <span className="font-mono text-xs font-bold text-[#166534] uppercase tracking-wider block mb-1">
-          Navigation State [{errorStatus}] //
+          Navigation State [{errorStatus}]
         </span>
         <h2 className="font-heading font-extrabold text-xl text-[#111827]">
           Routing Notice

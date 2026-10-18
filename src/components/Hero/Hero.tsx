@@ -41,7 +41,7 @@ export const Hero: React.FC<HeroProps> = ({
               size="md"
               className="mb-6 font-mono text-xs font-semibold rounded-[6px] px-3 py-1 border-[#BBF7D0]"
             >
-              AVAILABLE FOR FULL-STACK MERN ROLES & INQUIRIES
+              AVAILABLE FOR MACHINE LEARNING, DATA SCIENCE & FULL-STACK ROLES
             </Badge>
 
             {/* H1 Headline */}
@@ -87,7 +87,7 @@ export const Hero: React.FC<HeroProps> = ({
                   if (el) el.scrollIntoView({ behavior: 'smooth' })
                 }}
               >
-                Selected Projects
+                Project Showcase
               </Button>
 
               <Button
@@ -119,7 +119,7 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Social Connectivity */}
             <div className="mt-8 pt-4 flex items-center gap-3">
               <span className="font-mono text-xs uppercase tracking-wider text-[#9CA3AF]">
-                Profiles //
+                Profiles ·
               </span>
               <SocialLinks size="sm" />
             </div>

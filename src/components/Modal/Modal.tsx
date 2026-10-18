@@ -63,7 +63,7 @@ export const Modal: React.FC<ModalProps> = ({
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 overflow-hidden"
     >
       {/* Backdrop */}
       <div
@@ -75,14 +75,14 @@ export const Modal: React.FC<ModalProps> = ({
       <div
         onClick={(e) => e.stopPropagation()}
         className={cn(
-          'relative z-10 w-full rounded-[12px] bg-white border border-[#E5E7EB] shadow-[0_12px_32px_rgba(15,23,42,0.12)] overflow-hidden flex flex-col my-8 transition-all animate-in zoom-in-95 duration-150',
+          'relative z-10 w-full max-h-[88vh] sm:max-h-[84vh] rounded-[12px] bg-white border border-[#E5E7EB] shadow-[0_16px_40px_rgba(15,23,42,0.18)] overflow-hidden flex flex-col transition-all animate-in zoom-in-95 duration-150',
           sizeClasses[size],
           className
         )}
       >
         {/* Header */}
         {(title || showCloseButton) && (
-          <div className="flex items-center justify-between px-6 py-4 border-b border-[#E5E7EB]">
+          <div className="flex items-center justify-between px-5 py-3.5 sm:px-6 sm:py-4 border-b border-[#E5E7EB] shrink-0 bg-white">
             <div className="min-w-0 pr-4">
               {title && (
                 <h3 className="font-heading text-lg font-bold text-[#111827] truncate">
