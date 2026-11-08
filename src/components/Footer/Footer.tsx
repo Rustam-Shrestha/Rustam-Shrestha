@@ -74,7 +74,17 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
 
         {/* Bottom copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#9CA3AF] gap-4">
-          <p>© {new Date().getFullYear()} {SITE_CONFIG.name}. Clean architecture.</p>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 justify-center sm:justify-start">
+            <p>© {new Date().getFullYear()} {SITE_CONFIG.name}. Clean architecture.</p>
+            <span aria-hidden="true" className="text-[#D1D5DB]">·</span>
+            <Link
+              to="/utilities"
+              className="text-[#9CA3AF] hover:text-[#6B7280] transition-colors lowercase cursor-pointer"
+              title="Miscellaneous"
+            >
+              miscellaneous
+            </Link>
+          </div>
           <p>React 19 · TypeScript · Tailwind CSS v4</p>
         </div>
       </Container>

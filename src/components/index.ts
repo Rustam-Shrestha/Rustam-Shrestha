@@ -21,3 +21,8 @@ export * from './Tabs'
 export * from './Timeline'
 export * from './Tooltip'
 export * from './ErrorBoundary'
+export * from './CopyButton'
+export * from './Select'
+export * from './Switch'
+export * from './SearchInput'
+

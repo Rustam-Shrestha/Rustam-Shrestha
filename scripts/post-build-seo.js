@@ -80,6 +80,17 @@ const ROUTES = [
     heading: 'Initiate direct dialogue for projects & engineering roles',
     subheading: 'Available for full-stack engineering roles, applied machine learning collaborations, and technical consulting.',
   },
+  {
+    path: '/utilities',
+    dir: 'utilities',
+    title: 'Utilities & Resources | Santosh (Rustam) Shrestha',
+    description:
+      'Operational doctrines, developer utilities, and specialized powerhouse persona toolkit.',
+    priority: '0.3',
+    changefreq: 'yearly',
+    heading: 'Developer Utilities & Resources',
+    subheading: 'Operational doctrines and engineering resources.',
+  },
 ]
 
 // 1. Generate sitemap.xml

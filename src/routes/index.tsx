@@ -11,6 +11,7 @@ import ProjectsPage from '@/pages/Projects'
 import SkillsPage from '@/pages/Skills'
 import TestimonialsPage from '@/pages/Testimonials'
 import ContactPage from '@/pages/Contact'
+import UtilitiesPage from '@/pages/Utilities'
 import NotFoundPage from '@/pages/NotFound'
 
 /**
@@ -45,6 +46,10 @@ const routes = [
       {
         path: 'contact',
         element: <ContactPage />,
+      },
+      {
+        path: 'utilities',
+        element: <UtilitiesPage />,
       },
       {
         path: '*',
