@@ -39,6 +39,13 @@ jobs:
       - name: Build application
         run: pnpm build
 
+      - name: Verify deployable artifact
+        shell: bash
+        run: |
+          test -f dist/site.webmanifest
+          ! grep -R 'src/main.tsx' dist
+          grep -q 'href="/site.webmanifest"' dist/about/index.html
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
