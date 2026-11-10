@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button'
 import { SocialLinks } from '@/components/SocialLinks'
 import { useScrollToTop } from '@/hooks'
 import { NAV_ITEMS, SITE_CONFIG } from '@/utils'
-import { ChevronDown } from '@/assets/icons'
+import { ArrowRight } from '@/assets/icons'
 import { cn } from '@/utils'
 
 export interface FooterProps {
@@ -12,6 +13,7 @@ export interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
+  const { t } = useTranslation('common')
   const { scrollToTop } = useScrollToTop(false)
 
   return (
@@ -34,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
                 alt="Santosh Shrestha Logo"
                 className="w-6 h-6 object-contain rounded-[4px] shrink-0"
                 onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none'
+                  ;(e.target as HTMLElement).style.display = 'none'
                 }}
               />
               <span>{SITE_CONFIG.name}</span>
@@ -52,7 +54,7 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
                 to={item.href}
                 className="text-xs sm:text-sm font-medium text-[#4B5563] hover:text-[#166534] transition-colors"
               >
-                {item.label}
+                {t(`nav.${item.key || item.label.toLowerCase()}`, item.label)}
               </Link>
             ))}
           </div>
@@ -64,10 +66,10 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
               variant="ghost"
               size="sm"
               onClick={scrollToTop}
-              className="font-mono text-xs text-[#6B7280] hover:text-[#166534] h-7 px-2"
-              rightIcon={<ChevronDown className="size-3.5 rotate-180" />}
+              className="text-xs font-medium text-[#6B7280] hover:text-[#166534] h-8 px-3"
+              leftIcon={<ArrowRight className="size-3.5 -rotate-90 text-[#166534]" />}
             >
-              [TOP]
+              {t('actions.backToTop', 'Back to top')}
             </Button>
           </div>
         </div>
@@ -75,14 +77,14 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
         {/* Bottom copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#9CA3AF] gap-4">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 justify-center sm:justify-start">
-            <p>© {new Date().getFullYear()} {SITE_CONFIG.name}. Clean architecture.</p>
+            <p>© {new Date().getFullYear()} {SITE_CONFIG.name}. {t('footer.cleanArchitecture', 'Clean architecture.')}</p>
             <span aria-hidden="true" className="text-[#D1D5DB]">·</span>
             <Link
               to="/utilities"
               className="text-[#9CA3AF] hover:text-[#6B7280] transition-colors lowercase cursor-pointer"
-              title="Miscellaneous"
+              title={t('footer.miscellaneous', 'Miscellaneous')}
             >
-              miscellaneous
+              {t('footer.miscellaneous', 'miscellaneous')}
             </Link>
           </div>
           <p>React 19 · TypeScript · Tailwind CSS v4</p>

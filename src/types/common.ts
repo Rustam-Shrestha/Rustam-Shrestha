@@ -7,6 +7,8 @@ export interface NavItem {
   href: string
   isExternal?: boolean
   badge?: string
+  key?: string
+  icon?: string
 }
 
 export interface SocialLink {

@@ -25,7 +25,7 @@ export const SkillCard: React.FC<SkillCardProps> = ({ skillGroup, number, classN
 
           {number && (
             <span className="font-mono text-xs font-semibold text-[#166534]">
-              [{number}]
+              {number}
             </span>
           )}
         </div>

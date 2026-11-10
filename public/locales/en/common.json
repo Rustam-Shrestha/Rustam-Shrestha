@@ -1,0 +1,41 @@
+{
+  "welcome": "Welcome",
+  "save": "Save",
+  "menu": "Menu",
+  "close": "Close",
+  "language": "Language",
+  "english": "English",
+  "nepali": "नेपाली",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "utilities": "Utilities"
+  },
+  "actions": {
+    "resume": "Resume",
+    "downloadCv": "Download CV (PDF)",
+    "backToTop": "Back to top",
+    "viewDetails": "View Details",
+    "contactMe": "Contact Me",
+    "exploreProjects": "Explore Projects",
+    "clear": "Clear",
+    "copy": "Copy",
+    "copied": "Copied!"
+  },
+  "sidebar": {
+    "navigation": "Navigation",
+    "resources": "Resources",
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar"
+  },
+  "footer": {
+    "cleanArchitecture": "Clean architecture.",
+    "allRightsReserved": "All rights reserved.",
+    "miscellaneous": "miscellaneous"
+  }
+}
+

@@ -1,9 +1,10 @@
-import { Link, useLocation } from 'react-router-dom'
-import { Container } from '@/components/Container'
+import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/Button'
+import { LanguageToggle } from '@/components/LanguageToggle'
 import { useUIStore } from '@/store'
-import { NAV_ITEMS, SITE_CONFIG } from '@/utils'
-import { Menu, X, Download } from '@/assets/icons'
+import { SITE_CONFIG } from '@/utils'
+import { Menu, Download } from '@/assets/icons'
 import { cn } from '@/utils'
 
 export interface NavbarProps {
@@ -11,131 +12,82 @@ export interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ className = '' }) => {
-  const location = useLocation()
-  const { mobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useUIStore()
+  const { t } = useTranslation('common')
+  const { toggleSidebar, toggleMobileSidebar } = useUIStore()
+
+  const handleHamburgerClick = () => {
+    // If desktop (window width >= 1024), toggle expanded/unexpanded
+    // If mobile (< 1024), toggle slide-over drawer
+    if (typeof window !== 'undefined' && window.innerWidth >= 1024) {
+      toggleSidebar()
+    } else {
+      toggleMobileSidebar()
+    }
+  }
 
   return (
     <header
       className={cn(
-        'sticky top-0 z-40 w-full border-b border-[#E5E7EB] bg-white/95 backdrop-blur-md transition-colors',
+        'sticky top-0 z-40 w-full h-14 sm:h-16 border-b border-[#E5E7EB] bg-white/95 backdrop-blur-md transition-colors',
         className
       )}
     >
-      <Container size="xl">
-        <div className="flex items-center justify-between h-16 sm:h-18">
-          {/* Logo / Brand Name */}
+      <div className="w-full h-full px-3 sm:px-4 lg:px-6 flex items-center justify-between">
+        {/* Left: Hamburger & Logo */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            onClick={handleHamburgerClick}
+            aria-label="Toggle navigation sidebar"
+            className="p-2 h-9 w-9 text-[#4B5563] hover:text-[#111827] hover:bg-[#F3F4F6] rounded-full shrink-0"
+          >
+            <Menu className="size-5" />
+          </Button>
+
           <Link
             to="/"
-            onClick={closeMobileMenu}
-            className="flex items-center gap-2.5 group font-heading font-extrabold text-base sm:text-lg text-[#111827]"
+            className="flex items-center gap-2.5 font-heading font-extrabold text-base sm:text-lg text-[#111827] group"
           >
             <img
               src="./images/logo.png"
               alt="Santosh Shrestha Logo"
-              className="w-8 h-8 rounded-[6px] object-contain shrink-0"
+              className="w-7 h-7 sm:w-8 sm:h-8 rounded-[6px] object-contain shrink-0"
               onError={(e) => {
-                (e.target as HTMLElement).style.display = 'none'
+                ;(e.target as HTMLElement).style.display = 'none'
               }}
             />
-            <span className="tracking-tight group-hover:text-[#166534] transition-colors">
+            <span className="tracking-tight group-hover:text-[#166534] transition-colors truncate hidden xs:inline">
               {SITE_CONFIG.name}
             </span>
+            <span className="tracking-tight group-hover:text-[#166534] transition-colors truncate xs:hidden">
+              {SITE_CONFIG.shortName}
+            </span>
           </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
-            {NAV_ITEMS.map((item) => {
-              const isActive = location.pathname === item.href
-              return (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  className={cn(
-                    'px-3.5 py-1.5 rounded-[6px] text-sm font-medium transition-colors duration-150',
-                    isActive
-                      ? 'text-[#166534] bg-[#DCFCE7] font-semibold'
-                      : 'text-[#4B5563] hover:text-[#111827] hover:bg-[#F5F7F6]'
-                  )}
-                >
-                  {item.label}
-                </Link>
-              )
-            })}
-          </nav>
-
-          {/* Right Action Area */}
-          <div className="flex items-center gap-3">
-            <Button
-              variant="primary"
-              size="sm"
-              leftIcon={<Download className="size-3.5" />}
-              onClick={() => {
-                if (SITE_CONFIG.resumeUrl) {
-                  window.open(SITE_CONFIG.resumeUrl, '_blank')
-                }
-              }}
-            >
-              Resume
-            </Button>
-
-            {/* Mobile Hamburger Button */}
-            <div className="md:hidden">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={toggleMobileMenu}
-                aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-                className="p-2 h-9 w-9"
-              >
-                {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-              </Button>
-            </div>
-          </div>
         </div>
-      </Container>
 
-      {/* Mobile Drawer Navigation */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[#E5E7EB] bg-white px-4 pt-3 pb-6 animate-in slide-in-from-top-2 duration-150">
-          <nav className="flex flex-col gap-1">
-            {NAV_ITEMS.map((item) => {
-              const isActive = location.pathname === item.href
-              return (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  onClick={closeMobileMenu}
-                  className={cn(
-                    'px-4 py-2.5 rounded-[6px] text-sm font-medium transition-colors',
-                    isActive
-                      ? 'bg-[#DCFCE7] text-[#166534] font-semibold'
-                      : 'text-[#374151] hover:bg-[#F5F7F6]'
-                  )}
-                >
-                  {item.label}
-                </Link>
-              )
-            })}
+        {/* Right: Language Switcher & Resume */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Devanagari / English Language Switcher */}
+          <LanguageToggle variant="switch" />
 
-            <div className="pt-3 mt-2 border-t border-[#E5E7EB]">
-              <Button
-                fullWidth
-                variant="primary"
-                size="md"
-                leftIcon={<Download className="size-4" />}
-                onClick={() => {
-                  closeMobileMenu()
-                  if (SITE_CONFIG.resumeUrl) {
-                    window.open(SITE_CONFIG.resumeUrl, '_blank')
-                  }
-                }}
-              >
-                Download CV (PDF)
-              </Button>
-            </div>
-          </nav>
+          {/* Download Resume / CV */}
+          <Button
+            variant="primary"
+            size="sm"
+            leftIcon={<Download className="size-3.5" />}
+            onClick={() => {
+              if (SITE_CONFIG.resumeUrl) {
+                window.open(SITE_CONFIG.resumeUrl, '_blank')
+              }
+            }}
+            className="hidden sm:inline-flex text-xs font-medium"
+          >
+            {t('actions.resume', 'Resume')}
+          </Button>
         </div>
-      )}
+      </div>
     </header>
   )
 }

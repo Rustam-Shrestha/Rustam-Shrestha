@@ -25,4 +25,6 @@ export * from './CopyButton'
 export * from './Select'
 export * from './Switch'
 export * from './SearchInput'
+export * from './Sidebar'
+export * from './LanguageToggle'
 

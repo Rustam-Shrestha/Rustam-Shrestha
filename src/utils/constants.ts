@@ -16,12 +16,12 @@ export const SITE_CONFIG = {
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Projects', href: '/projects' },
-  { label: 'Skills', href: '/skills' },
-  { label: 'Testimonials', href: '/testimonials' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Home', href: '/', key: 'home', icon: 'home' },
+  { label: 'About', href: '/about', key: 'about', icon: 'about' },
+  { label: 'Projects', href: '/projects', key: 'projects', icon: 'projects' },
+  { label: 'Skills', href: '/skills', key: 'skills', icon: 'skills' },
+  { label: 'Testimonials', href: '/testimonials', key: 'testimonials', icon: 'testimonials' },
+  { label: 'Contact', href: '/contact', key: 'contact', icon: 'contact' },
 ]
 
 export const SOCIAL_LINKS: SocialLink[] = [

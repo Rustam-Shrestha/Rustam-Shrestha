@@ -1,0 +1,41 @@
+{
+  "welcome": "स्वागतम्",
+  "save": "सुरक्षित गर्नुहोस्",
+  "menu": "मेनु",
+  "close": "बन्द गर्नुहोस्",
+  "language": "भाषा",
+  "english": "English",
+  "nepali": "नेपाली",
+  "nav": {
+    "home": "गृहपृष्ठ",
+    "about": "मेरो बारेमा",
+    "projects": "परियोजनाहरू",
+    "skills": "दक्षताहरू",
+    "testimonials": "अनुशंसाहरू",
+    "contact": "सम्पर्क",
+    "utilities": "उपयोगिताहरू"
+  },
+  "actions": {
+    "resume": "बायोडाटा",
+    "downloadCv": "सीभी डाउनलोड (PDF)",
+    "backToTop": "शीर्षमा जानुहोस्",
+    "viewDetails": "विवरण हेर्नुहोस्",
+    "contactMe": "सम्पर्क गर्नुहोस्",
+    "exploreProjects": "परियोजनाहरू हेर्नुहोस्",
+    "clear": "हटाउनुहोस्",
+    "copy": "प्रतिलिपि गर्नुहोस्",
+    "copied": "प्रतिलिपि भयो!"
+  },
+  "sidebar": {
+    "navigation": "नेभिगेसन",
+    "resources": "स्रोतहरू",
+    "collapse": "साइडबार संकुचित गर्नुहोस्",
+    "expand": "साइडबार विस्तार गर्नुहोस्"
+  },
+  "footer": {
+    "cleanArchitecture": "सफा संरचना।",
+    "allRightsReserved": "सबै अधिकार सुरक्षित।",
+    "miscellaneous": "विविध"
+  }
+}
+
