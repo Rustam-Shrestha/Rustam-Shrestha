@@ -14,6 +14,10 @@ import {
   Select,
   Switch,
   CopyButton,
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
   Seo,
 } from '@/components'
 import { personaToolkitData } from '@/data'
@@ -36,6 +40,9 @@ export const UtilitiesPage: React.FC = () => {
   const [prependHeader, setPrependHeader] = useState<boolean>(true)
   const [isHeaderExpanded, setIsHeaderExpanded] = useState<boolean>(false)
   const [activePersonaJump, setActivePersonaJump] = useState<string>('')
+
+  // Accordion open items state (controlled)
+  const [openAccordionIds, setOpenAccordionIds] = useState<(string | number)[]>([])
 
   // User edited state (persists during page session)
   const [editedUniversalHeader, setEditedUniversalHeader] = useState<string>(universalHeader.prompt)
@@ -106,8 +113,16 @@ export const UtilitiesPage: React.FC = () => {
     })
   }, [personas, activeTab, searchQuery, editedPrompts])
 
-  // Scroll to a specific persona card
+  // Scroll to a specific persona card and expand it
   const scrollToPersona = (id: number) => {
+    // Ensure the targeted persona accordion is opened
+    setOpenAccordionIds((prev) => {
+      if (!prev.includes(id)) {
+        return [...prev, id]
+      }
+      return prev
+    })
+
     const el = personaRefs.current[id]
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -123,11 +138,21 @@ export const UtilitiesPage: React.FC = () => {
     setActivePersonaJump(val)
     if (!val) return
     const id = parseInt(val, 10)
-    // If current tab is router or combining, switch to 'all' or the persona's category
     if (activeTab === 'router' || activeTab === 'combining') {
       setActiveTab('all')
     }
     setTimeout(() => scrollToPersona(id), 100)
+  }
+
+  // Expand all filtered personas
+  const handleExpandAll = () => {
+    const allIds = filteredPersonas.map((p) => p.id)
+    setOpenAccordionIds(allIds)
+  }
+
+  // Collapse all personas
+  const handleCollapseAll = () => {
+    setOpenAccordionIds([])
   }
 
   // Reset a specific prompt to factory default
@@ -152,7 +177,6 @@ export const UtilitiesPage: React.FC = () => {
     assembled += promptText.trim()
 
     if (customTask) {
-      // If prompt already ended with MY TASK: [paste task], append or replace
       assembled += `\n\nMY SPECIFIC TASK / CONTEXT:\n${customTask}`
     }
 
@@ -196,7 +220,7 @@ MY TASK:
     <div className="min-h-screen bg-[#FAFAFA] py-8 sm:py-12">
       <Seo
         title="Utilities & Persona Powerhouse Toolkit | Developer Resources"
-        description="22 production-grade veteran personas with anti-generic operating rules, interactive prompt editors, quick router, and section-wise instant copy."
+        description="24 production-grade veteran personas with anti-generic operating rules, interactive accordion prompt editors, quick router, and section-wise instant copy."
       />
 
       <Container size="xl" className="space-y-8">
@@ -216,9 +240,9 @@ MY TASK:
                 Persona Toolkit & Powerhouse Prompt Engine
               </h1>
               <p className="text-sm text-[#4B5563] max-w-2xl leading-relaxed">
-                22 veteran niche personas engineered for high-stakes problem solving, deep domain execution,
-                and zero-fluff output. Edit prefilled prompts in-place, customize parameters, and copy section-wise
-                ready to paste.
+                24 veteran niche personas engineered for high-stakes problem solving, deep domain execution,
+                and zero-fluff output. Modular accordion cards with one-click copy, in-place prompt editing,
+                and instant multi-agent combinations.
               </p>
             </div>
 
@@ -333,8 +357,8 @@ MY TASK:
         {/* Filter Bar, Tabs & Quick Jump Controls */}
         <div className="space-y-4">
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
-            {/* Topicwise Tabs */}
-            <div className="overflow-x-auto pb-1 -mx-2 px-2 scrollbar-none">
+            {/* Topicwise Tabs with concise PC custom scrollbar */}
+            <div className="overflow-x-auto pb-2 pt-0.5 -mx-2 px-2 custom-tabs-scroll">
               <Tabs
                 tabs={tabItems}
                 activeTab={activeTab}
@@ -355,8 +379,8 @@ MY TASK:
             </div>
           </div>
 
-          {/* Search Filter Bar */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          {/* Search Filter Bar & Accordion View Controls */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-white p-3 rounded-[8px] border border-[#E5E7EB]">
             <div className="flex-1">
               <SearchInput
                 value={searchQuery}
@@ -366,8 +390,34 @@ MY TASK:
               />
             </div>
 
-            {/* Current Search Status Badge */}
-            <div className="flex items-center gap-2 text-xs font-mono text-[#6B7280] px-1">
+            {/* Accordion Expand / Collapse All Controls */}
+            {activeTab !== 'router' && activeTab !== 'combining' && (
+              <div className="flex items-center gap-2 shrink-0">
+                <Button
+                  type="button"
+                  variant="secondary"
+                  size="sm"
+                  onClick={handleExpandAll}
+                  className="text-xs font-mono h-9 px-2.5"
+                  title="Expand all persona accordions"
+                >
+                  Expand All
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleCollapseAll}
+                  className="text-xs font-mono h-9 px-2.5 text-[#6B7280] hover:text-[#111827]"
+                  title="Collapse all persona accordions"
+                >
+                  Collapse All
+                </Button>
+              </div>
+            )}
+
+            {/* Current Status Badge */}
+            <div className="flex items-center gap-2 text-xs font-mono text-[#6B7280] px-1 shrink-0">
               <span>Showing:</span>
               <Badge variant="secondary" size="sm">
                 {activeTab === 'router'
@@ -539,10 +589,11 @@ MY TASK:
         )}
 
         {/* ========================================================================= */}
-        {/* VIEW 3: MAIN PERSONA LIST (CARDS) */}
+        {/* VIEW 3: MAIN PERSONA LIST AS VERSATILE ACCORDION */}
+        {/* Clean, collapsible, uncluttered layout with quick-copy buttons on header */}
         {/* ========================================================================= */}
         {activeTab !== 'router' && activeTab !== 'combining' && (
-          <div className="space-y-8">
+          <div>
             {filteredPersonas.length === 0 ? (
               <Card variant="surface" className="p-12 text-center">
                 <p className="text-sm text-[#6B7280]">
@@ -562,24 +613,70 @@ MY TASK:
                 </Button>
               </Card>
             ) : (
-              filteredPersonas.map((persona) => {
-                const currentPrompt = editedPrompts[persona.id] ?? persona.prompt
-                const isModified = currentPrompt !== persona.prompt
-                const fullExportText = getFullCompiledPrompt(persona)
+              <Accordion
+                openItems={openAccordionIds}
+                onOpenItemsChange={setOpenAccordionIds}
+                allowMultiple
+                className="space-y-3"
+              >
+                {filteredPersonas.map((persona) => {
+                  const currentPrompt = editedPrompts[persona.id] ?? persona.prompt
+                  const isModified = currentPrompt !== persona.prompt
+                  const fullExportText = getFullCompiledPrompt(persona)
 
-                return (
-                  <div
-                    key={persona.id}
-                    ref={(el) => {
-                      personaRefs.current[persona.id] = el
-                    }}
-                    className="scroll-mt-24 transition-all duration-300"
-                  >
-                    <Card variant="surface" className="overflow-hidden border-[#E5E7EB] shadow-xs">
-                      {/* Persona Header Bar */}
-                      <CardHeader className="bg-[#F8FAFC] border-b border-[#E5E7EB] p-4 sm:p-5">
-                        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                          {/* Left: Persona identity & tags */}
+                  return (
+                    <div
+                      key={persona.id}
+                      ref={(el) => {
+                        personaRefs.current[persona.id] = el
+                      }}
+                      className="scroll-mt-24 transition-all duration-300"
+                    >
+                      <AccordionItem id={persona.id}>
+                        {/* Accordion Trigger (Header Row with Quick Actions) */}
+                        <AccordionTrigger
+                          actions={
+                            <>
+                              {isModified && (
+                                <Button
+                                  type="button"
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    handleResetPrompt(persona.id)
+                                  }}
+                                  className="text-xs text-[#6B7280] hover:text-[#DC2626] font-mono h-8 px-2"
+                                  title="Reset prompt to original defaults"
+                                  leftIcon={<RotateCcw className="size-3.5" />}
+                                >
+                                  Reset
+                                </Button>
+                              )}
+
+                              {/* Direct Prompt-only Copy */}
+                              <CopyButton
+                                text={currentPrompt}
+                                label="Copy Prompt"
+                                copiedLabel="Prompt Copied!"
+                                size="sm"
+                                variant="outline"
+                                className="bg-white"
+                                title="Copy editable persona prompt only"
+                              />
+
+                              {/* Complete Full Prompt with Header & Task */}
+                              <CopyButton
+                                text={fullExportText}
+                                label={prependHeader ? 'Copy Complete (+Header)' : 'Copy Complete'}
+                                copiedLabel="Complete Copied!"
+                                size="sm"
+                                variant="primary"
+                                title="Copy prompt with Universal Header & your specific task"
+                              />
+                            </>
+                          }
+                        >
                           <div className="space-y-1.5">
                             <div className="flex flex-wrap items-center gap-2">
                               <Badge
@@ -601,132 +698,101 @@ MY TASK:
                                 </Badge>
                               )}
                             </div>
-                            <CardTitle className="text-lg sm:text-xl font-bold font-heading text-[#0F172A]">
+
+                            <h3 className="text-base sm:text-lg font-bold font-heading text-[#0F172A] leading-snug">
                               {persona.title}
-                            </CardTitle>
+                            </h3>
+
+                            {/* Brief subject summary line visible even when collapsed */}
+                            <p className="text-xs text-[#64748B] line-clamp-1 max-w-3xl">
+                              {persona.subject}
+                            </p>
+                          </div>
+                        </AccordionTrigger>
+
+                        {/* Accordion Content (Expanded Details & In-Place Form) */}
+                        <AccordionContent className="space-y-4">
+                          {/* Target Operational Domain Detail */}
+                          <div className="p-3.5 rounded-[6px] bg-[#F1F5F9]/60 border border-[#E2E8F0] space-y-1">
+                            <span className="text-[11px] font-mono uppercase tracking-wider font-semibold text-[#475569] block">
+                              Target Operational Domain:
+                            </span>
+                            <p className="text-xs sm:text-sm text-[#1E293B] leading-relaxed font-medium">
+                              {persona.subject}
+                            </p>
                           </div>
 
-                          {/* Right: Section-wise Copy Buttons & Tools */}
-                          <div className="flex flex-wrap items-center gap-2 justify-start lg:justify-end shrink-0">
-                            {isModified && (
-                              <Button
-                                type="button"
-                                variant="ghost"
-                                size="sm"
-                                onClick={() => handleResetPrompt(persona.id)}
-                                className="text-xs text-[#6B7280] hover:text-[#DC2626] font-mono h-8 px-2"
-                                title="Reset prompt to original defaults"
-                                leftIcon={<RotateCcw className="size-3.5" />}
-                              >
-                                Reset
-                              </Button>
-                            )}
-
-                            {/* Direct Prompt-only Copy */}
-                            <CopyButton
-                              text={currentPrompt}
-                              label="Copy Prompt"
-                              copiedLabel="Prompt Copied!"
-                              size="sm"
-                              variant="outline"
-                              className="bg-white"
-                              title="Copy editable persona prompt only"
-                            />
-
-                            {/* Complete Full Prompt with Header & Task */}
-                            <CopyButton
-                              text={fullExportText}
-                              label={prependHeader ? 'Copy Complete (+Header)' : 'Copy Complete'}
-                              copiedLabel="Complete Copied!"
-                              size="sm"
-                              variant="primary"
-                              title="Copy prompt with Universal Header & your specific task"
-                            />
+                          {/* Keywords Tag Cloud */}
+                          <div className="space-y-1.5">
+                            <span className="text-[11px] font-mono uppercase tracking-wider font-semibold text-[#64748B] block">
+                              Trigger Keywords:
+                            </span>
+                            <div className="flex flex-wrap gap-1.5">
+                              {persona.keywords.map((kw, i) => (
+                                <span
+                                  key={i}
+                                  className="inline-flex items-center text-[11px] font-mono px-2 py-0.5 rounded-[4px] bg-[#F1F5F9] text-[#334155] border border-[#E2E8F0]"
+                                >
+                                  {kw}
+                                </span>
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                      </CardHeader>
 
-                      <CardContent className="p-4 sm:p-6 space-y-4">
-                        {/* Topic & Focus Block */}
-                        <div className="p-3.5 rounded-[6px] bg-[#F1F5F9]/60 border border-[#E2E8F0] space-y-1">
-                          <span className="text-[11px] font-mono uppercase tracking-wider font-semibold text-[#475569] block">
-                            Target Operational Domain:
-                          </span>
-                          <p className="text-xs sm:text-sm text-[#1E293B] leading-relaxed font-medium">
-                            {persona.subject}
-                          </p>
-                        </div>
-
-                        {/* Keywords Tag Cloud */}
-                        <div className="space-y-1.5">
-                          <span className="text-[11px] font-mono uppercase tracking-wider font-semibold text-[#64748B] block">
-                            Trigger Keywords:
-                          </span>
-                          <div className="flex flex-wrap gap-1.5">
-                            {persona.keywords.map((kw, i) => (
-                              <span
-                                key={i}
-                                className="inline-flex items-center text-[11px] font-mono px-2 py-0.5 rounded-[4px] bg-[#F1F5F9] text-[#334155] border border-[#E2E8F0]"
-                              >
-                                {kw}
+                          {/* Prefilled & Editable Form Area */}
+                          <div className="space-y-2 pt-2">
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#374151] flex items-center gap-1.5">
+                                <Sparkles className="size-3.5 text-[#166534]" />
+                                Prefilled Prompt Editor (Fully Editable in Form):
                               </span>
-                            ))}
-                          </div>
-                        </div>
+                              <span className="text-[11px] font-mono text-[#94A3B8]">
+                                {currentPrompt.length} chars · {currentPrompt.split('\n').length} lines
+                              </span>
+                            </div>
 
-                        {/* Prefilled & Editable Form Area */}
-                        <div className="space-y-2 pt-2">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#374151] flex items-center gap-1.5">
-                              <Sparkles className="size-3.5 text-[#166534]" />
-                              Prefilled Prompt Editor (Fully Editable in Form):
-                            </span>
-                            <span className="text-[11px] font-mono text-[#94A3B8]">
-                              {currentPrompt.length} chars · {currentPrompt.split('\n').length} lines
-                            </span>
+                            <TextareaField
+                              value={currentPrompt}
+                              onChange={(e) =>
+                                setEditedPrompts((prev) => ({
+                                  ...prev,
+                                  [persona.id]: e.target.value,
+                                }))
+                              }
+                              rows={10}
+                              className="font-mono text-xs leading-relaxed bg-[#FFFFFF] border-[#CBD5E1]"
+                            />
                           </div>
 
-                          <TextareaField
-                            value={currentPrompt}
-                            onChange={(e) =>
-                              setEditedPrompts((prev) => ({
-                                ...prev,
-                                [persona.id]: e.target.value,
-                              }))
-                            }
-                            rows={10}
-                            className="font-mono text-xs leading-relaxed bg-[#FFFFFF] border-[#CBD5E1]"
-                          />
-                        </div>
-
-                        {/* Optional Custom Task / Situation Quick-Fill */}
-                        <div className="p-3.5 rounded-[6px] bg-[#F8FAFC] border border-[#E2E8F0] space-y-2">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-mono font-semibold text-[#334155]">
-                              Custom Task Input (Appended to Copy Complete):
-                            </span>
-                            <span className="text-[11px] text-[#64748B]">
-                              Optional: specify your scenario directly
-                            </span>
+                          {/* Optional Custom Task / Situation Quick-Fill */}
+                          <div className="p-3.5 rounded-[6px] bg-[#F8FAFC] border border-[#E2E8F0] space-y-2">
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs font-mono font-semibold text-[#334155]">
+                                Custom Task Input (Appended to Copy Complete):
+                              </span>
+                              <span className="text-[11px] text-[#64748B]">
+                                Optional: specify your scenario directly
+                              </span>
+                            </div>
+                            <TextareaField
+                              value={customTasks[persona.id] ?? ''}
+                              onChange={(e) =>
+                                setCustomTasks((prev) => ({
+                                  ...prev,
+                                  [persona.id]: e.target.value,
+                                }))
+                              }
+                              placeholder={persona.defaultTask || 'Type or paste your exact scenario/task here...'}
+                              rows={2}
+                              className="font-mono text-xs bg-white"
+                            />
                           </div>
-                          <TextareaField
-                            value={customTasks[persona.id] ?? ''}
-                            onChange={(e) =>
-                              setCustomTasks((prev) => ({
-                                ...prev,
-                                [persona.id]: e.target.value,
-                              }))
-                            }
-                            placeholder={persona.defaultTask || 'Type or paste your exact scenario/task here...'}
-                            rows={2}
-                            className="font-mono text-xs bg-white"
-                          />
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                )
-              })
+                        </AccordionContent>
+                      </AccordionItem>
+                    </div>
+                  )
+                })}
+              </Accordion>
             )}
           </div>
         )}
@@ -736,4 +802,3 @@ MY TASK:
 }
 
 export default UtilitiesPage
-
