@@ -279,39 +279,61 @@ MY TASK:
           <div className="mt-6 rounded-[8px] border border-[#E5E7EB] bg-[#F9FAFB] overflow-hidden">
             <div
               onClick={() => setIsHeaderExpanded(!isHeaderExpanded)}
-              className="flex items-center justify-between p-4 cursor-pointer hover:bg-[#F3F4F6] transition-colors"
+              className="p-4 cursor-pointer hover:bg-[#F3F4F6] transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             >
-              <div className="flex items-center gap-3">
-                <span className="flex size-6 items-center justify-center rounded-full bg-[#166534] text-white text-xs font-mono font-bold">
-                  UH
-                </span>
-                <div>
-                  <h2 className="text-sm font-semibold text-[#111827] flex items-center gap-2">
-                    {universalHeader.title}
-                    <Badge variant="outline" size="sm" className="hidden sm:inline-flex">
-                      Non-Negotiable Operating Rules
-                    </Badge>
-                  </h2>
-                  <p className="text-xs text-[#6B7280]">
-                    {universalHeader.subtitle}
-                  </p>
+              <div className="flex items-start sm:items-center justify-between sm:justify-start gap-3 w-full sm:w-auto flex-1 min-w-0">
+                <div className="flex items-center gap-3 min-w-0">
+                  <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#166534] text-white text-xs font-mono font-bold">
+                    UH
+                  </span>
+                  <div className="min-w-0">
+                    <h2 className="text-sm font-semibold text-[#111827] flex flex-wrap items-center gap-2">
+                      <span>{universalHeader.title}</span>
+                      <Badge variant="outline" size="sm" className="hidden sm:inline-flex text-[10px]">
+                        Non-Negotiable Operating Rules
+                      </Badge>
+                    </h2>
+                    <p className="text-xs text-[#6B7280] truncate sm:whitespace-normal">
+                      {universalHeader.subtitle}
+                    </p>
+                  </div>
                 </div>
+
+                {/* Mobile Chevron Button */}
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className="sm:hidden p-1 h-7 w-7 text-[#6B7280] shrink-0"
+                  title={isHeaderExpanded ? 'Collapse' : 'Expand'}
+                >
+                  <ChevronDown
+                    className={cn(
+                      'size-4 transition-transform duration-200',
+                      isHeaderExpanded && 'rotate-180 text-[#166534]'
+                    )}
+                  />
+                </Button>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center justify-end sm:justify-start gap-2.5 w-full sm:w-auto pt-2 sm:pt-0 border-t border-[#E5E7EB]/70 sm:border-t-0 shrink-0"
+              >
                 <CopyButton
                   text={editedUniversalHeader}
                   label="Copy Universal Header"
                   copiedLabel="Header Copied!"
                   size="sm"
                   variant="outline"
-                  className="bg-white"
+                  className="bg-white flex-1 sm:flex-none justify-center"
                 />
                 <Button
                   type="button"
                   variant="ghost"
                   size="sm"
-                  className="p-1 h-7 w-7 text-[#6B7280]"
+                  onClick={() => setIsHeaderExpanded(!isHeaderExpanded)}
+                  className="hidden sm:inline-flex p-1 h-7 w-7 text-[#6B7280] shrink-0"
                   title={isHeaderExpanded ? 'Collapse' : 'Expand'}
                 >
                   <ChevronDown
@@ -646,7 +668,7 @@ MY TASK:
                                     e.stopPropagation()
                                     handleResetPrompt(persona.id)
                                   }}
-                                  className="text-xs text-[#6B7280] hover:text-[#DC2626] font-mono h-8 px-2"
+                                  className="text-xs text-[#6B7280] hover:text-[#DC2626] font-mono h-8 px-2 shrink-0"
                                   title="Reset prompt to original defaults"
                                   leftIcon={<RotateCcw className="size-3.5" />}
                                 >
@@ -661,17 +683,27 @@ MY TASK:
                                 copiedLabel="Prompt Copied!"
                                 size="sm"
                                 variant="outline"
-                                className="bg-white"
+                                className="bg-white flex-1 sm:flex-none justify-center text-xs"
                                 title="Copy editable persona prompt only"
                               />
 
                               {/* Complete Full Prompt with Header & Task */}
                               <CopyButton
                                 text={fullExportText}
-                                label={prependHeader ? 'Copy Complete (+Header)' : 'Copy Complete'}
+                                label={
+                                  <span>
+                                    <span className="hidden sm:inline">
+                                      {prependHeader ? 'Copy Complete (+Header)' : 'Copy Complete'}
+                                    </span>
+                                    <span className="inline sm:hidden">
+                                      {prependHeader ? 'Copy (+Header)' : 'Copy All'}
+                                    </span>
+                                  </span>
+                                }
                                 copiedLabel="Complete Copied!"
                                 size="sm"
                                 variant="primary"
+                                className="flex-1 sm:flex-none justify-center text-xs"
                                 title="Copy prompt with Universal Header & your specific task"
                               />
                             </>
@@ -786,6 +818,42 @@ MY TASK:
                               rows={2}
                               className="font-mono text-xs bg-white"
                             />
+                          </div>
+
+                          {/* Quick Bottom Action Bar for Easy Mobile & In-Place Copy */}
+                          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-3 border-t border-[#E2E8F0]/80">
+                            <span className="text-[11px] font-mono text-[#64748B]">
+                              Ready to use:
+                            </span>
+                            <div className="flex items-center gap-2">
+                              <CopyButton
+                                text={currentPrompt}
+                                label="Copy Prompt"
+                                copiedLabel="Prompt Copied!"
+                                size="sm"
+                                variant="outline"
+                                className="bg-white flex-1 sm:flex-none justify-center text-xs"
+                                title="Copy editable persona prompt only"
+                              />
+                              <CopyButton
+                                text={fullExportText}
+                                label={
+                                  <span>
+                                    <span className="hidden sm:inline">
+                                      {prependHeader ? 'Copy Complete (+Header)' : 'Copy Complete'}
+                                    </span>
+                                    <span className="inline sm:hidden">
+                                      {prependHeader ? 'Copy (+Header)' : 'Copy All'}
+                                    </span>
+                                  </span>
+                                }
+                                copiedLabel="Complete Copied!"
+                                size="sm"
+                                variant="primary"
+                                className="flex-1 sm:flex-none justify-center text-xs"
+                                title="Copy prompt with Universal Header & your specific task"
+                              />
+                            </div>
                           </div>
                         </AccordionContent>
                       </AccordionItem>

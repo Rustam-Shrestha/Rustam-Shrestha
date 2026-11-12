@@ -1,12 +1,12 @@
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import { Button, type ButtonVariant, type ButtonSize } from '@/components/Button'
 import { Copy, Check } from '@/assets/icons'
 import { cn } from '@/utils'
 
 export interface CopyButtonProps {
   text: string
-  label?: string
-  copiedLabel?: string
+  label?: ReactNode
+  copiedLabel?: ReactNode
   size?: ButtonSize
   variant?: ButtonVariant
   className?: string
@@ -51,13 +51,17 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
     }
   }
 
+  const tooltipTitle = typeof (copied ? copiedLabel : title) === 'string'
+    ? (copied ? (copiedLabel as string) : title)
+    : title
+
   return (
     <Button
       type="button"
       size={size}
       variant={copied ? 'secondary' : variant}
       onClick={handleCopy}
-      title={copied ? copiedLabel : title}
+      title={tooltipTitle}
       className={cn(
         'font-mono text-xs transition-all duration-200 shrink-0 cursor-pointer',
         copied && 'text-[#166534] border-[#166534]/30 bg-[#F0FDF4]',

@@ -182,22 +182,40 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
         className
       )}
     >
-      {/* Left / Main info */}
-      <div className="flex-1 min-w-0 pr-2">{children}</div>
+      {/* Top Header Row on mobile / Left info on desktop */}
+      <div className="flex items-start justify-between gap-3 w-full md:w-auto md:flex-1 md:min-w-0">
+        <div className="flex-1 min-w-0 pr-1 md:pr-2">{children}</div>
 
-      {/* Right / Actions & Chevron */}
-      <div className="flex items-center gap-2.5 shrink-0 self-end md:self-center">
+        {/* Mobile-only Chevron Indicator (Top-Right, aligned with header title) */}
+        <div
+          className={cn(
+            'md:hidden flex size-8 shrink-0 items-center justify-center rounded-full text-[#64748B] transition-transform duration-200 mt-0.5',
+            isOpen ? 'rotate-180 text-[#166534] bg-[#DCFCE7]' : 'bg-[#F1F5F9]/80'
+          )}
+          aria-hidden="true"
+        >
+          <ChevronDown className="size-4" />
+        </div>
+      </div>
+
+      {/* Actions and Desktop Chevron */}
+      <div className="w-full md:w-auto flex flex-col sm:flex-row md:flex-row items-stretch sm:items-center md:items-center justify-between md:justify-end gap-2.5 shrink-0 pt-2.5 md:pt-0 border-t border-[#F1F5F9] md:border-t-0">
         {actions && (
-          <div onClick={handleActionsClick} className="flex items-center gap-2">
+          <div
+            onClick={handleActionsClick}
+            className="flex flex-wrap sm:flex-nowrap items-center gap-2 w-full sm:w-auto justify-end"
+          >
             {actions}
           </div>
         )}
 
+        {/* Desktop-only Chevron */}
         <div
           className={cn(
-            'flex size-8 items-center justify-center rounded-full text-[#64748B] transition-transform duration-200',
+            'hidden md:flex size-8 items-center justify-center rounded-full text-[#64748B] transition-transform duration-200 shrink-0',
             isOpen ? 'rotate-180 text-[#166534] bg-[#DCFCE7]' : 'hover:bg-[#F1F5F9]'
           )}
+          aria-hidden="true"
         >
           <ChevronDown className="size-4" />
         </div>
