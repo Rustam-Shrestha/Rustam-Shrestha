@@ -220,7 +220,7 @@ MY TASK:
     <div className="min-h-screen bg-[#FAFAFA] py-8 sm:py-12">
       <Seo
         title="Utilities & Persona Powerhouse Toolkit | Developer Resources"
-        description="24 production-grade veteran personas with anti-generic operating rules, interactive accordion prompt editors, quick router, and section-wise instant copy."
+        description={`${personas.length} production-grade veteran personas with anti-generic operating rules, interactive accordion prompt editors, quick router, and section-wise instant copy.`}
       />
 
       <Container size="xl" className="space-y-8">
@@ -240,7 +240,7 @@ MY TASK:
                 Persona Toolkit & Powerhouse Prompt Engine
               </h1>
               <p className="text-sm text-[#4B5563] max-w-2xl leading-relaxed">
-                24 veteran niche personas engineered for high-stakes problem solving, deep domain execution,
+                {personas.length} veteran niche personas engineered for high-stakes problem solving, deep domain execution,
                 and zero-fluff output. Modular accordion cards with one-click copy, in-place prompt editing,
                 and instant multi-agent combinations.
               </p>
